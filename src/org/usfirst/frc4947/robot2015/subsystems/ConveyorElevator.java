@@ -62,6 +62,10 @@ public class ConveyorElevator extends Subsystem {
     	motorMaster.set(setPoint);
     }
     
+    public int getClosedLoopError(){
+    	return motorMaster.getClosedLoopError();
+    }
+    
     public void resetEncoder(){
     	motorMaster.setPosition(0);
     }

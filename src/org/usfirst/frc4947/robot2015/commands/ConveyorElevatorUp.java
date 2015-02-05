@@ -1,7 +1,6 @@
 package org.usfirst.frc4947.robot2015.commands;
 
 import org.usfirst.frc4947.robot2015.Robot;
-import org.usfirst.frc4947.robot2015.subsystems.ConveyorElevator;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -18,18 +17,19 @@ public class ConveyorElevatorUp extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    //TODO il reste à savoir quelle valeur a mettre pour la position up
-    	Robot.conveyorElevator.setSetPoint(1500);
-    
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//TODO il reste à savoir quelle valeur a mettre pour la position up
+    	// SetPoint must be set repeatedly if we don't want the safety feature to disable the motor
+    	Robot.conveyorElevator.setSetPoint(1500);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.conveyorElevator.getForwardLimit() &&;
+    	// TODO déterminer la bonne valeur d'erreur qu'il est acceptable d'avoir avant de considérer la commande comme terminée
+        return Math.abs(Robot.conveyorElevator.getClosedLoopError()) <= 50; 
     }
 
     // Called once after isFinished returns true
