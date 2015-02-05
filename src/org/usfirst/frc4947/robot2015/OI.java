@@ -51,6 +51,8 @@ public class OI {
         SmartDashboard.putData("ConveyorStop", new ConveyorStop());
         SmartDashboard.putData("ConveyorOut", new ConveyorOut());
         SmartDashboard.putData("ConveyorIn", new ConveyorIn());
+        SmartDashboard.putData("OpenHook", new OpenHook());
+        SmartDashboard.putData("CloseHook", new CloseHook());
     }
     
     public Joystick getJoystickDriver() {
