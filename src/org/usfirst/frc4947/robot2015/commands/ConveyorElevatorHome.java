@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ConveyorElevatorUp extends Command {
+public class ConveyorElevatorHome extends Command {
 
-    public ConveyorElevatorUp() {
+    public ConveyorElevatorHome() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.conveyorElevator);
@@ -17,27 +17,28 @@ public class ConveyorElevatorUp extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.conveyorElevator.setModePercent();
+    	Robot.conveyorElevator.setValue(-0.1);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//TODO il reste à savoir quelle valeur a mettre pour la position up
-    	// SetPoint must be set repeatedly if we don't want the safety feature to disable the motor
-    	Robot.conveyorElevator.setSetPoint(1500);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// TODO déterminer la bonne valeur d'erreur qu'il est acceptable d'avoir avant de considérer la commande comme terminée
-        return Math.abs(Robot.conveyorElevator.getClosedLoopError()) <= 50; 
+    	return Robot.conveyorElevator.getReverseLimit();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	interrupted();
+    	Robot.conveyorElevator.resetEncoder();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.conveyorElevator.setValue(0);
     }
 }

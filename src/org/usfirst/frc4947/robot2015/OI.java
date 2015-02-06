@@ -11,11 +11,19 @@
 
 package org.usfirst.frc4947.robot2015;
 
-import org.usfirst.frc4947.robot2015.commands.*;
+import org.usfirst.frc4947.robot2015.commands.AutonomousCommand;
+import org.usfirst.frc4947.robot2015.commands.CloseHook;
+import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorHome;
+import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorManual;
+import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorPosition;
+import org.usfirst.frc4947.robot2015.commands.ConveyorIn;
+import org.usfirst.frc4947.robot2015.commands.ConveyorOut;
+import org.usfirst.frc4947.robot2015.commands.ConveyorStop;
+import org.usfirst.frc4947.robot2015.commands.OpenHook;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.*;
 
 
 /**
@@ -23,10 +31,48 @@ import edu.wpi.first.wpilibj.*;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-    public Joystick joystickDriver = new Joystick(0);
-    public Joystick joystickHelper = new Joystick(1);
+	public enum XBoxAxis{
+		LeftStickX(1),
+		LeftStickY(2),
+		Trigger(3),
+		RightStickX(4),
+		RightStickY(5);		
 
-    public OI() {
+		private int value;
+		XBoxAxis(int value){
+			this.value = value;
+		}
+		
+		public int getValue() {
+			return value;
+		}
+	}
+	
+	public enum XBoxButton{
+		A(1),
+		B(2),
+		X(3),
+		Y(4),
+		LB(5),
+		RB(6),
+		Back(7),
+		Start(8);
+
+		private int value;
+		XBoxButton(int value){
+			this.value = value;
+		}
+		
+		public int getValue() {
+			return value;
+		}
+	}	
+	
+    private Joystick joystickDriver = new Joystick(0);
+    private Joystick joystickHelper = new Joystick(1);
+
+    @SuppressWarnings("unused")
+	public OI() {
         // Create some buttons
         JoystickButton driverA = new JoystickButton(joystickDriver, 1);
         JoystickButton driverB = new JoystickButton(joystickDriver, 2);
@@ -45,12 +91,20 @@ public class OI {
         JoystickButton helperRB = new JoystickButton(joystickHelper, 6);
         JoystickButton helperBack = new JoystickButton(joystickHelper, 7);
         JoystickButton helperStart = new JoystickButton(joystickHelper, 8);
-    	
+
+        // TODO Linker les boutons avec des commandes comme plus bas
+        //helperA.whenPressed(new ConveyorIn());
+        
     	// SmartDashboard Buttons
-        SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
-        SmartDashboard.putData("ConveyorStop", new ConveyorStop());
-        SmartDashboard.putData("ConveyorOut", new ConveyorOut());
+        SmartDashboard.putData("AutonomousCommand", new AutonomousCommand());
         SmartDashboard.putData("ConveyorIn", new ConveyorIn());
+        SmartDashboard.putData("ConveyorOut", new ConveyorOut());
+        SmartDashboard.putData("ConveyorStop", new ConveyorStop());
+        SmartDashboard.putData("ConveyorElevatorHome", new ConveyorElevatorHome());
+        SmartDashboard.putData("ConveyorElevatorManual", new ConveyorElevatorManual());
+        SmartDashboard.putData("ConveyorElevatorPosition0", new ConveyorElevatorPosition(0));
+        SmartDashboard.putData("ConveyorElevatorPosition1000", new ConveyorElevatorPosition(1000));
+        SmartDashboard.putData("ConveyorElevatorPosition5000", new ConveyorElevatorPosition(5000));
         SmartDashboard.putData("OpenHook", new OpenHook());
         SmartDashboard.putData("CloseHook", new CloseHook());
     }

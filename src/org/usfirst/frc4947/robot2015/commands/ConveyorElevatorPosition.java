@@ -1,6 +1,5 @@
 package org.usfirst.frc4947.robot2015.commands;
 
-import org.usfirst.frc4947.robot2015.OI.XBoxAxis;
 import org.usfirst.frc4947.robot2015.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -8,36 +7,41 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ArcadeDrive extends Command {
+public class ConveyorElevatorPosition extends Command {
 
-    public ArcadeDrive() {
-        requires(Robot.driveTrain);
+	public double position;	
+	
+    public ConveyorElevatorPosition(double position) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.conveyorElevator);
+    	
+    	this.position = position;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.conveyorElevator.setModePosition();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.arcadeDrive(Robot.oi.getJoystickDriver(), XBoxAxis.Trigger.getValue(), Robot.oi.getJoystickDriver(), XBoxAxis.LeftStickX.getValue());
+    	// SetPoint must be set repeatedly if we don't want the safety feature to disable the motor
+    	Robot.conveyorElevator.setValue(position);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// Execute this command until interrupted
-        return false;
+    	// TODO determiner la bonne valeur d'erreur qu'il est acceptable d'avoir avant de considerer la commande comme terminee
+        return Math.abs(Robot.conveyorElevator.getClosedLoopError()) <= 50; 
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	// Stop the robot when interrupted
-    	Robot.driveTrain.tankdrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }

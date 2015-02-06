@@ -12,7 +12,6 @@
 package org.usfirst.frc4947.robot2015.subsystems;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -21,35 +20,35 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  *
  */
 public class ConveyorElevator extends Subsystem {
-    CANTalon motorMaster = new CANTalon(5);
-    CANTalon motorSlave = new CANTalon(6);
+    private CANTalon motorMaster = new CANTalon(5);
+    private CANTalon motorSlave = new CANTalon(6);
     
-    DigitalInput homeSwitch = new DigitalInput(4);
-    
-    Solenoid releaseHook = new Solenoid(5);
+    private Solenoid releaseHook = new Solenoid(5);
 
     // Initialize your subsystem here
     public ConveyorElevator() {
         super();
         
         motorSlave.changeControlMode(CANTalon.ControlMode.Follower);
-        motorSlave.set(motorMaster.getDeviceID());
+        motorSlave.set(5);
         
-        motorMaster.changeControlMode(CANTalon.ControlMode.Position);
-        motorMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
-        motorMaster.setPID(10,  0,  0);
-        
-        LiveWindow.addActuator("ConveyorElevator", "HomeSwitch", homeSwitch);
         LiveWindow.addActuator("ConveyorElevator", "ReleaseHook", releaseHook);
     }
     
     public void initDefaultCommand() {
     }
     
-    public boolean getHomeLimit(){
-    	return homeSwitch.get();
+    public void setModePosition(){
+        motorMaster.changeControlMode(CANTalon.ControlMode.Position);
+        motorMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+        motorMaster.setPID(10,  0,  0);
     }
     
+    public void setModePercent(){
+        motorMaster.changeControlMode(CANTalon.ControlMode.PercentVbus);
+        //motorSlave.changeControlMode(CANTalon.ControlMode.PercentVbus);
+    }
+
     public boolean getForwardLimit(){
     	return motorMaster.isFwdLimitSwitchClosed();
     }
@@ -58,8 +57,9 @@ public class ConveyorElevator extends Subsystem {
     	return motorMaster.isRevLimitSwitchClosed();
     }
     
-    public void setSetPoint(double setPoint){
-    	motorMaster.set(setPoint);
+    public void setValue(double value){
+    	motorMaster.set(value);
+    	//motorSlave.set(value);
     }
     
     public int getClosedLoopError(){

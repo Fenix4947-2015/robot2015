@@ -16,22 +16,26 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  *
  */
 public class DriveTrain extends Subsystem {
-    Gyro gyro = new Gyro(0);
-	BuiltInAccelerometer accelerometer = new BuiltInAccelerometer();
+	private Gyro gyro = new Gyro(0);
+	private BuiltInAccelerometer accelerometer = new BuiltInAccelerometer();
 	
-    DigitalInput antennaLeft = new DigitalInput(0);
-    DigitalInput antennaRight = new DigitalInput(1);
+	private DigitalInput antennaLeft = new DigitalInput(0);
+	private DigitalInput antennaRight = new DigitalInput(1);
     
-    CANTalon motorRearLeft = new CANTalon(0);
-    CANTalon motorFrontLeft = new CANTalon(1);
-    CANTalon motorFrontRight = new CANTalon(2);
-    CANTalon motorRearRight = new CANTalon(3);
+	private CANTalon motorRearLeft = new CANTalon(0);
+	private CANTalon motorFrontLeft = new CANTalon(1);
+	private CANTalon motorFrontRight = new CANTalon(2);
+    private CANTalon motorRearRight = new CANTalon(3);
     
     RobotDrive robotDrive = new RobotDrive(motorFrontLeft, motorRearLeft, motorFrontRight, motorRearRight);
 
     public DriveTrain() {
 		super();
 		
+		// TODO Voir si on a besoin d'une protection au niveau de la vitesse maximale
+		robotDrive.setMaxOutput(0.5);
+		
+		// TODO Voir si on a besoin d'activer la securite
 		//robotDrive.setSafetyEnabled(true);
 
 		LiveWindow.addSensor("DriveTrain", "Gyro", gyro);      
@@ -44,8 +48,8 @@ public class DriveTrain extends Subsystem {
         setDefaultCommand(new ArcadeDrive());
     }
     
-    public void arcadeDrive(Joystick joystick){
-		robotDrive.arcadeDrive(joystick);
+    public void arcadeDrive(Joystick moveStick, int moveAxis, Joystick rotateStick, int rotateAxis){
+		robotDrive.arcadeDrive(moveStick, moveAxis, rotateStick, rotateAxis);
     }
     
     public void tankdrive(double leftValue, double rightValue){

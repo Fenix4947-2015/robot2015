@@ -34,7 +34,7 @@ public class  ConveyorIn extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// TODO Trouver une facon plus robuste que de détecter les deux limit switch
+    	// TODO Trouver une facon plus robuste que de detecter les deux limit switch
         return Robot.conveyor.getLimitSwitchLeft() && Robot.conveyor.getLimitSwitchRight();
     }
 
