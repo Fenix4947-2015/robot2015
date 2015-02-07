@@ -16,11 +16,16 @@ public class ArcadeDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+		// TODO Voir si on a besoin d'une protection au niveau de la vitesse maximale
+    	Robot.driveTrain.setMaxOutput(0.5);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.arcadeDrive(Robot.oi.getJoystickDriver(), XBoxAxis.Trigger.getValue(), Robot.oi.getJoystickDriver(), XBoxAxis.LeftStickX.getValue());
+    	double moveValue = Robot.oi.getJoystickDriver().getRawAxis(XBoxAxis.RightTrigger.getValue()) - Robot.oi.getJoystickDriver().getRawAxis(XBoxAxis.LeftTrigger.getValue());
+    	double rotateValue = -Robot.oi.getJoystickDriver().getRawAxis(XBoxAxis.LeftStickX.getValue());
+    	
+    	Robot.driveTrain.arcadeDrive(moveValue, rotateValue);
     }
 
     // Make this return true when this Command no longer needs to run execute()

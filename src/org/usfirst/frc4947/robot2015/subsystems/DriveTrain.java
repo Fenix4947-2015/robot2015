@@ -6,10 +6,10 @@ import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Gyro;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -31,10 +31,7 @@ public class DriveTrain extends Subsystem {
 
     public DriveTrain() {
 		super();
-		
-		// TODO Voir si on a besoin d'une protection au niveau de la vitesse maximale
-		robotDrive.setMaxOutput(0.5);
-		
+
 		// TODO Voir si on a besoin d'activer la securite
 		//robotDrive.setSafetyEnabled(true);
 
@@ -48,8 +45,8 @@ public class DriveTrain extends Subsystem {
         setDefaultCommand(new ArcadeDrive());
     }
     
-    public void arcadeDrive(Joystick moveStick, int moveAxis, Joystick rotateStick, int rotateAxis){
-		robotDrive.arcadeDrive(moveStick, moveAxis, rotateStick, rotateAxis);
+    public void arcadeDrive(double moveValue, double rotateValue){
+		robotDrive.arcadeDrive(moveValue, rotateValue);
     }
     
     public void tankdrive(double leftValue, double rightValue){
@@ -62,6 +59,15 @@ public class DriveTrain extends Subsystem {
     
     public boolean getAntennaRight(){
     	return antennaRight.get();
+    }
+    
+    public void setMaxOutput(double maxOutput){
+    	robotDrive.setMaxOutput(maxOutput);
+    }
+    
+    public void log() {
+        SmartDashboard.putBoolean("DriveTrainLeft", getAntennaLeft());
+        SmartDashboard.putBoolean("DriveTrainRight", getAntennaRight());
     }
 }
 

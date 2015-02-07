@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -39,6 +40,11 @@ public class Conveyor extends Subsystem {
     
     public boolean getLimitSwitchRight(){
     	return limitSwitchRight.get();
+    }
+    
+    public void log() {
+    	SmartDashboard.putBoolean("ConveyorLeft", getLimitSwitchLeft());
+    	SmartDashboard.putBoolean("ConveyorRight", getLimitSwitchRight());
     }
     
 }

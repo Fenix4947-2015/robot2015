@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ConveyorElevatorHome extends Command {
+public class ConveyorElevatorResetEncoder extends Command {
 
-    public ConveyorElevatorHome() {
+    public ConveyorElevatorResetEncoder() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.conveyorElevator);
@@ -17,8 +17,7 @@ public class ConveyorElevatorHome extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.conveyorElevator.setModePercent();
-    	Robot.conveyorElevator.setValue(-0.25);
+    	Robot.conveyorElevator.resetEncoder();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -27,18 +26,15 @@ public class ConveyorElevatorHome extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Robot.conveyorElevator.getReverseLimit();
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.conveyorElevator.stop();
-    	Robot.conveyorElevator.resetEncoder();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.conveyorElevator.stop();
     }
 }

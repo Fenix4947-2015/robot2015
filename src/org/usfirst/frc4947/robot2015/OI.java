@@ -11,12 +11,19 @@
 
 package org.usfirst.frc4947.robot2015;
 
+import org.usfirst.frc4947.robot2015.commands.AutoAlignDrive;
 import org.usfirst.frc4947.robot2015.commands.AutonomousCommand;
 import org.usfirst.frc4947.robot2015.commands.CloseHook;
+import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorDown;
 import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorHome;
 import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorManual;
+import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorPercent;
 import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorPosition;
+import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorResetEncoder;
+import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorStack;
+import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorStop;
 import org.usfirst.frc4947.robot2015.commands.ConveyorIn;
+import org.usfirst.frc4947.robot2015.commands.ConveyorManual;
 import org.usfirst.frc4947.robot2015.commands.ConveyorOut;
 import org.usfirst.frc4947.robot2015.commands.ConveyorStop;
 import org.usfirst.frc4947.robot2015.commands.OpenHook;
@@ -32,9 +39,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class OI {
 	public enum XBoxAxis{
-		LeftStickX(1),
-		LeftStickY(2),
-		Trigger(3),
+		LeftStickX(0),
+		LeftStickY(1),
+		LeftTrigger(2),
+		RightTrigger(3),
 		RightStickX(4),
 		RightStickY(5);		
 
@@ -49,14 +57,14 @@ public class OI {
 	}
 	
 	public enum XBoxButton{
-		A(1),
-		B(2),
-		X(3),
-		Y(4),
-		LB(5),
-		RB(6),
-		Back(7),
-		Start(8);
+		A(0),
+		B(1),
+		X(2),
+		Y(3),
+		LB(4),
+		RB(5),
+		Back(6),
+		Start(7);
 
 		private int value;
 		XBoxButton(int value){
@@ -74,37 +82,47 @@ public class OI {
     @SuppressWarnings("unused")
 	public OI() {
         // Create some buttons
-        JoystickButton driverA = new JoystickButton(joystickDriver, 1);
-        JoystickButton driverB = new JoystickButton(joystickDriver, 2);
-        JoystickButton driverX = new JoystickButton(joystickDriver, 3);
-        JoystickButton driverY = new JoystickButton(joystickDriver, 4);
-        JoystickButton driverLB = new JoystickButton(joystickDriver, 5);
-        JoystickButton driverRB = new JoystickButton(joystickDriver, 6);
-        JoystickButton driverBack = new JoystickButton(joystickDriver, 7);
-        JoystickButton driverStart = new JoystickButton(joystickDriver, 8);
+        JoystickButton driverA = new JoystickButton(joystickDriver, XBoxButton.A.getValue());
+        JoystickButton driverB = new JoystickButton(joystickDriver, XBoxButton.B.getValue());
+        JoystickButton driverX = new JoystickButton(joystickDriver, XBoxButton.X.getValue());
+        JoystickButton driverY = new JoystickButton(joystickDriver, XBoxButton.Y.getValue());
+        JoystickButton driverLB = new JoystickButton(joystickDriver, XBoxButton.LB.getValue());
+        JoystickButton driverRB = new JoystickButton(joystickDriver, XBoxButton.RB.getValue());
+        JoystickButton driverBack = new JoystickButton(joystickDriver, XBoxButton.Back.getValue());
+        JoystickButton driverStart = new JoystickButton(joystickDriver, XBoxButton.Start.getValue());
         
-        JoystickButton helperA = new JoystickButton(joystickHelper, 1);
-        JoystickButton helperB = new JoystickButton(joystickHelper, 2);
-        JoystickButton helperX = new JoystickButton(joystickHelper, 3);
-        JoystickButton helperY = new JoystickButton(joystickHelper, 4);
-        JoystickButton helperLB = new JoystickButton(joystickHelper, 5);
-        JoystickButton helperRB = new JoystickButton(joystickHelper, 6);
-        JoystickButton helperBack = new JoystickButton(joystickHelper, 7);
-        JoystickButton helperStart = new JoystickButton(joystickHelper, 8);
+        JoystickButton helperA = new JoystickButton(joystickHelper, XBoxButton.A.getValue());
+        JoystickButton helperB = new JoystickButton(joystickHelper, XBoxButton.B.getValue());
+        JoystickButton helperX = new JoystickButton(joystickHelper, XBoxButton.X.getValue());
+        JoystickButton helperY = new JoystickButton(joystickHelper, XBoxButton.Y.getValue());
+        JoystickButton helperLB = new JoystickButton(joystickHelper, XBoxButton.LB.getValue());
+        JoystickButton helperRB = new JoystickButton(joystickHelper, XBoxButton.RB.getValue());
+        JoystickButton helperBack = new JoystickButton(joystickHelper, XBoxButton.Back.getValue());
+        JoystickButton helperStart = new JoystickButton(joystickHelper, XBoxButton.Start.getValue());
 
         // TODO Linker les boutons avec des commandes comme plus bas
         //helperA.whenPressed(new ConveyorIn());
         
     	// SmartDashboard Buttons
         SmartDashboard.putData("AutonomousCommand", new AutonomousCommand());
+        SmartDashboard.putData("AutoAlignDrive", new AutoAlignDrive());
         SmartDashboard.putData("ConveyorIn", new ConveyorIn());
         SmartDashboard.putData("ConveyorOut", new ConveyorOut());
         SmartDashboard.putData("ConveyorStop", new ConveyorStop());
+        SmartDashboard.putData("ConveyorManual", new ConveyorManual());
+        SmartDashboard.putData("ConveyorElevatorStack", new ConveyorElevatorStack());
+        SmartDashboard.putData("ConveyorElevatorDown", new ConveyorElevatorDown());
+        SmartDashboard.putData("ConveyorElevatorStop", new ConveyorElevatorStop());
+        SmartDashboard.putData("ConveyorElevatorResetEncoder", new ConveyorElevatorResetEncoder());
         SmartDashboard.putData("ConveyorElevatorHome", new ConveyorElevatorHome());
         SmartDashboard.putData("ConveyorElevatorManual", new ConveyorElevatorManual());
-        SmartDashboard.putData("ConveyorElevatorPosition0", new ConveyorElevatorPosition(0));
-        SmartDashboard.putData("ConveyorElevatorPosition1000", new ConveyorElevatorPosition(1000));
-        SmartDashboard.putData("ConveyorElevatorPosition5000", new ConveyorElevatorPosition(5000));
+        SmartDashboard.putData("ConveyorElevatorPosition 0", new ConveyorElevatorPosition(0));
+        SmartDashboard.putData("ConveyorElevatorPosition 1000", new ConveyorElevatorPosition(1000));
+        SmartDashboard.putData("ConveyorElevatorPosition 2200", new ConveyorElevatorPosition(2200));
+        SmartDashboard.putData("ConveyorElevatorPosition 4000", new ConveyorElevatorPosition(4000));
+        SmartDashboard.putData("ConveyorElevatorPosition 4650", new ConveyorElevatorPosition(4650));
+        SmartDashboard.putData("ConveyorElevatorPercent 25, 1000", new ConveyorElevatorPercent(0.25, 1000));
+        SmartDashboard.putData("ConveyorElevatorPosition 25, 3000", new ConveyorElevatorPercent(0.25,  3000));
         SmartDashboard.putData("OpenHook", new OpenHook());
         SmartDashboard.putData("CloseHook", new CloseHook());
     }
