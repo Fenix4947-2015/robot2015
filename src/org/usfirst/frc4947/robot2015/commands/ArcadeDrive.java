@@ -22,10 +22,10 @@ public class ArcadeDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double moveValue = Robot.oi.getJoystickDriver().getRawAxis(XBoxAxis.RightTrigger.getValue()) - Robot.oi.getJoystickDriver().getRawAxis(XBoxAxis.LeftTrigger.getValue());
-    	double rotateValue = -Robot.oi.getJoystickDriver().getRawAxis(XBoxAxis.LeftStickX.getValue());
+    	double moveValue = Robot.oi.getJoystickDriverAxis(XBoxAxis.RightTrigger) - Robot.oi.getJoystickDriverAxis(XBoxAxis.LeftTrigger);
+    	double rotateValue = Robot.oi.getJoystickDriverAxis(XBoxAxis.LeftStickX, 0.1);
     	
-    	Robot.driveTrain.arcadeDrive(moveValue, rotateValue);
+    	Robot.driveTrain.arcadeDrive(moveValue, -rotateValue);
     }
 
     // Make this return true when this Command no longer needs to run execute()

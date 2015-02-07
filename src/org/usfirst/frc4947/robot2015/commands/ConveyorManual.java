@@ -1,7 +1,6 @@
 package org.usfirst.frc4947.robot2015.commands;
 
 import org.usfirst.frc4947.robot2015.OI.XBoxAxis;
-import org.usfirst.frc4947.robot2015.OI.XBoxButton;
 import org.usfirst.frc4947.robot2015.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,12 +22,12 @@ public class ConveyorManual extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.conveyor.setSpeed(Robot.oi.getJoystickDriver().getRawAxis(XBoxAxis.RightStickX.getValue()));
+    	Robot.conveyor.setSpeed(Robot.oi.getJoystickDriverAxis(XBoxAxis.RightStickX, 0.1));
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.oi.getJoystickDriver().getRawButton(XBoxButton.X.getValue()); 
+        return false;
     }
 
     // Called once after isFinished returns true
