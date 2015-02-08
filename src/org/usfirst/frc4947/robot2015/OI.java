@@ -99,7 +99,7 @@ public class OI {
         //helperA.whenPressed(new ConveyorIn());
         
     	// SmartDashboard Buttons
-        SmartDashboard.putData("AutonomousCommand", new AutonomousSimple());
+        SmartDashboard.putData("AutonomousSimple", new AutonomousSimple());
         
         SmartDashboard.putData("DriveAutoAlign", new DriveAutoAlign());
         SmartDashboard.putData("DriveForward(1)", new DriveForward(1));

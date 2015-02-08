@@ -1,13 +1,17 @@
 package org.usfirst.frc4947.robot2015;
 
+import org.usfirst.frc4947.robot2015.commands.AutonomousDoNothing;
+import org.usfirst.frc4947.robot2015.commands.AutonomousSimple;
+import org.usfirst.frc4947.robot2015.subsystems.Conveyor;
+import org.usfirst.frc4947.robot2015.subsystems.DriveTrain;
+import org.usfirst.frc4947.robot2015.subsystems.Elevator;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc4947.robot2015.commands.*;
-import org.usfirst.frc4947.robot2015.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,6 +23,7 @@ import org.usfirst.frc4947.robot2015.subsystems.*;
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
+    SendableChooser autonomousChooser = new SendableChooser();
 
     public static OI oi;
 
@@ -41,7 +46,9 @@ public class Robot extends IterativeRobot {
         oi = new OI();
 
         // Instantiate the command used for the autonomous period
-        autonomousCommand = new AutonomousSimple();
+        autonomousChooser.addDefault("AutonomousSimple", new AutonomousSimple());
+        autonomousChooser.addObject("AutonomousDoNothing", new AutonomousDoNothing());
+        SmartDashboard.putData("AutonomousMode", autonomousChooser);
        
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(driveTrain);
@@ -54,6 +61,8 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
+    	autonomousCommand = (Command)autonomousChooser.getSelected();
+    	
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
     }
