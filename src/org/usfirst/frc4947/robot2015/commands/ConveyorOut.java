@@ -19,14 +19,17 @@ import org.usfirst.frc4947.robot2015.Robot;
  */
 public class  ConveyorOut extends Command {
 
-    public ConveyorOut() {
+	private double timeout;
+	
+    public ConveyorOut(double timeout) {
         requires(Robot.conveyor);
+        
+        this.timeout = timeout;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	// TODO Trouver la bonne valeur de temps pour faire sortir la pile de bac
-    	setTimeout(5.0);
+    	setTimeout(timeout);
     	Robot.conveyor.setSpeed(1);
     }
 

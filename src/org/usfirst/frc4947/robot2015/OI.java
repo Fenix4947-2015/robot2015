@@ -1,21 +1,22 @@
 package org.usfirst.frc4947.robot2015;
 
-import org.usfirst.frc4947.robot2015.commands.AutoAlignDrive;
-import org.usfirst.frc4947.robot2015.commands.AutonomousCommand;
-import org.usfirst.frc4947.robot2015.commands.CloseHook;
-import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorDown;
-import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorHome;
-import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorManual;
-import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorPercent;
-import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorPosition;
-import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorResetEncoder;
-import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorStack;
-import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorStop;
+import org.usfirst.frc4947.robot2015.commands.DriveAutoAlign;
+import org.usfirst.frc4947.robot2015.commands.AutonomousSimple;
+import org.usfirst.frc4947.robot2015.commands.DriveStraight;
+import org.usfirst.frc4947.robot2015.commands.ElevatorHookHold;
+import org.usfirst.frc4947.robot2015.commands.ElevatorDown;
+import org.usfirst.frc4947.robot2015.commands.ElevatorHome;
+import org.usfirst.frc4947.robot2015.commands.ElevatorManual;
+import org.usfirst.frc4947.robot2015.commands.ElevatorPercent;
+import org.usfirst.frc4947.robot2015.commands.ElevatorPosition;
+import org.usfirst.frc4947.robot2015.commands.ElevatorResetEncoder;
+import org.usfirst.frc4947.robot2015.commands.ElevatorStack;
+import org.usfirst.frc4947.robot2015.commands.ElevatorStop;
 import org.usfirst.frc4947.robot2015.commands.ConveyorIn;
 import org.usfirst.frc4947.robot2015.commands.ConveyorManual;
 import org.usfirst.frc4947.robot2015.commands.ConveyorOut;
 import org.usfirst.frc4947.robot2015.commands.ConveyorStop;
-import org.usfirst.frc4947.robot2015.commands.OpenHook;
+import org.usfirst.frc4947.robot2015.commands.ElevatorHookRelease;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -93,27 +94,32 @@ public class OI {
         //helperA.whenPressed(new ConveyorIn());
         
     	// SmartDashboard Buttons
-        SmartDashboard.putData("AutonomousCommand", new AutonomousCommand());
-        SmartDashboard.putData("AutoAlignDrive", new AutoAlignDrive());
-        SmartDashboard.putData("ConveyorIn", new ConveyorIn());
-        SmartDashboard.putData("ConveyorOut", new ConveyorOut());
+        SmartDashboard.putData("AutonomousCommand", new AutonomousSimple());
+        
+        SmartDashboard.putData("DriveAutoAlign", new DriveAutoAlign());
+        SmartDashboard.putData("DriveStraight(1)", new DriveStraight(1));
+        
         SmartDashboard.putData("ConveyorStop", new ConveyorStop());
+        SmartDashboard.putData("ConveyorIn", new ConveyorIn());
+        SmartDashboard.putData("ConveyorOut(5)", new ConveyorOut(5));
+        SmartDashboard.putData("ConveyorOut(0.5)", new ConveyorOut(0.5));
         SmartDashboard.putData("ConveyorManual", new ConveyorManual());
-        SmartDashboard.putData("ConveyorElevatorStack", new ConveyorElevatorStack());
-        SmartDashboard.putData("ConveyorElevatorDown", new ConveyorElevatorDown());
-        SmartDashboard.putData("ConveyorElevatorStop", new ConveyorElevatorStop());
-        SmartDashboard.putData("ConveyorElevatorResetEncoder", new ConveyorElevatorResetEncoder());
-        SmartDashboard.putData("ConveyorElevatorHome", new ConveyorElevatorHome());
-        SmartDashboard.putData("ConveyorElevatorManual", new ConveyorElevatorManual());
-        SmartDashboard.putData("ConveyorElevatorPosition 0", new ConveyorElevatorPosition(0));
-        SmartDashboard.putData("ConveyorElevatorPosition 1000", new ConveyorElevatorPosition(1000));
-        SmartDashboard.putData("ConveyorElevatorPosition 2200", new ConveyorElevatorPosition(2200));
-        SmartDashboard.putData("ConveyorElevatorPosition 4000", new ConveyorElevatorPosition(4000));
-        SmartDashboard.putData("ConveyorElevatorPosition 4650", new ConveyorElevatorPosition(4650));
-        SmartDashboard.putData("ConveyorElevatorPercent 25, 1000", new ConveyorElevatorPercent(0.25, 1000));
-        SmartDashboard.putData("ConveyorElevatorPosition 25, 3000", new ConveyorElevatorPercent(0.25,  3000));
-        SmartDashboard.putData("OpenHook", new OpenHook());
-        SmartDashboard.putData("CloseHook", new CloseHook());
+        
+        SmartDashboard.putData("ElevatorStop", new ElevatorStop());
+        SmartDashboard.putData("ElevatorResetEncoder", new ElevatorResetEncoder());
+        SmartDashboard.putData("ElevatorHome", new ElevatorHome());
+        SmartDashboard.putData("ElevatorManual", new ElevatorManual());
+        SmartDashboard.putData("ElevatorPosition(0)", new ElevatorPosition(0));
+        SmartDashboard.putData("ElevatorPosition(2200)", new ElevatorPosition(2200));
+        SmartDashboard.putData("ElevatorPosition(4000)", new ElevatorPosition(4000));
+        SmartDashboard.putData("ElevatorPosition(4650)", new ElevatorPosition(4650));
+        SmartDashboard.putData("ElevatorPercent(0.25, 1000)", new ElevatorPercent(0.25, 1000));
+        SmartDashboard.putData("ElevatorPosition(0.25, 3000)", new ElevatorPercent(0.25,  3000));
+        SmartDashboard.putData("ElevatorHookRelease", new ElevatorHookRelease());
+        SmartDashboard.putData("ElevatorHookHold", new ElevatorHookHold());
+        SmartDashboard.putData("ElevatorStack", new ElevatorStack());
+        SmartDashboard.putData("ElevatorDown", new ElevatorDown());
+
     }
     
     public double getJoystickDriverAxis(XBoxAxis axis) {

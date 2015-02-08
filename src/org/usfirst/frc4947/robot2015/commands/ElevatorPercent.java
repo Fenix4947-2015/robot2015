@@ -8,17 +8,17 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class ConveyorElevatorPercent extends Command {
+public class ElevatorPercent extends Command {
 
 	public double percent;
 	public double position;
 	
 	public boolean isForwardDirection;
 	
-    public ConveyorElevatorPercent(double percent, double position) {
+    public ElevatorPercent(double percent, double position) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.conveyorElevator);
+    	requires(Robot.elevator);
     	
     	this.percent = percent;
     	this.position = position;
@@ -26,17 +26,17 @@ public class ConveyorElevatorPercent extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	isForwardDirection = Robot.conveyorElevator.getPosition() < position;
-    	Robot.conveyorElevator.setModePercent();
+    	isForwardDirection = Robot.elevator.getPosition() < position;
+    	Robot.elevator.setModePercent();
     }
     
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(isForwardDirection){
-    		Robot.conveyorElevator.setValue(percent);
+    		Robot.elevator.setValue(percent);
     	}
     	else{
-    		Robot.conveyorElevator.setValue(-percent);
+    		Robot.elevator.setValue(-percent);
     	}
     	
     	
@@ -48,16 +48,16 @@ public class ConveyorElevatorPercent extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	if(isForwardDirection){
-    		return Robot.conveyorElevator.getPosition() >= position;
+    		return Robot.elevator.getPosition() >= position;
     	}
     	else{
-    		return Robot.conveyorElevator.getPosition() <= position;
+    		return Robot.elevator.getPosition() <= position;
     	}
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.conveyorElevator.stop();
+    	Robot.elevator.stop();
     }
 
     // Called when another command which requires one or more of the same

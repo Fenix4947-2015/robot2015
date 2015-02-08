@@ -7,16 +7,16 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CloseHook extends Command {
+public class ElevatorHookRelease extends Command {
 
-    public CloseHook() {
-        requires(Robot.conveyorElevator);
+    public ElevatorHookRelease() {
+        requires(Robot.elevator);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	setTimeout(0.5);
-    	Robot.conveyorElevator.setReleaseHook(false);
+    	Robot.elevator.setReleaseHook(true);
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -7,17 +7,16 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ConveyorElevatorStop extends Command {
+public class ElevatorHookHold extends Command {
 
-    public ConveyorElevatorStop() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.conveyorElevator);
+    public ElevatorHookHold() {
+        requires(Robot.elevator);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.conveyorElevator.stop();
+    	setTimeout(0.5);
+    	Robot.elevator.setReleaseHook(false);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,7 +25,7 @@ public class ConveyorElevatorStop extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

@@ -1,6 +1,6 @@
 package org.usfirst.frc4947.robot2015.subsystems;
 
-import org.usfirst.frc4947.robot2015.commands.ConveyorElevatorStop;
+import org.usfirst.frc4947.robot2015.commands.ElevatorStop;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -11,17 +11,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class ConveyorElevator extends Subsystem {
+public class Elevator extends Subsystem {
     private CANTalon motorMaster = new CANTalon(5);
     private CANTalon motorSlave = new CANTalon(6);
     
     private Solenoid releaseHook = new Solenoid(5);
 
     // Initialize your subsystem here
-    public ConveyorElevator() {
+    public Elevator() {
         super();
-        
-        //motorMaster.setVoltageRampRate(24);
+
         motorSlave.changeControlMode(CANTalon.ControlMode.Follower);
         motorSlave.set(motorMaster.getDeviceID());
         
@@ -29,7 +28,7 @@ public class ConveyorElevator extends Subsystem {
     }
     
     public void initDefaultCommand() {
-    	setDefaultCommand(new ConveyorElevatorStop());
+    	setDefaultCommand(new ElevatorStop());
     }
     
     public void setModePosition(){

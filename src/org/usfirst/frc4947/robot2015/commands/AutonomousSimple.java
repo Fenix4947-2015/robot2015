@@ -17,9 +17,9 @@ import org.usfirst.frc4947.robot2015.Robot;
 /**
  *
  */
-public class  AutonomousCommand extends Command {
+public class  AutonomousSimple extends Command {
 
-    public AutonomousCommand() {
+    public AutonomousSimple() {
     	requires(Robot.driveTrain);
     }
 

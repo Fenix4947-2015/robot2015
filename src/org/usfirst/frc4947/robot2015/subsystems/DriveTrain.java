@@ -1,6 +1,6 @@
 package org.usfirst.frc4947.robot2015.subsystems;
 
-import org.usfirst.frc4947.robot2015.commands.ArcadeDrive;
+import org.usfirst.frc4947.robot2015.commands.DriveArcade;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
@@ -42,7 +42,7 @@ public class DriveTrain extends Subsystem {
 	}
     
     public void initDefaultCommand() {
-        setDefaultCommand(new ArcadeDrive());
+        setDefaultCommand(new DriveArcade());
     }
     
     public void arcadeDrive(double moveValue, double rotateValue){

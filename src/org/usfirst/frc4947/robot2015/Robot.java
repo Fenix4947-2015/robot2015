@@ -24,7 +24,7 @@ public class Robot extends IterativeRobot {
 
     public static DriveTrain driveTrain;
     public static Conveyor conveyor;
-    public static ConveyorElevator conveyorElevator;;
+    public static Elevator elevator;;
 
 
     /**
@@ -35,18 +35,18 @@ public class Robot extends IterativeRobot {
     	// Initialize all subsystems
         driveTrain = new DriveTrain();
         conveyor = new Conveyor();
-        conveyorElevator = new ConveyorElevator();
+        elevator = new Elevator();
 
         // Initialize the Operator Interface
         oi = new OI();
 
         // Instantiate the command used for the autonomous period
-        autonomousCommand = new AutonomousCommand();
+        autonomousCommand = new AutonomousSimple();
        
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(conveyor);
-        SmartDashboard.putData(conveyorElevator);
+        SmartDashboard.putData(elevator);
     }
 
     public void disabledPeriodic() {
@@ -92,6 +92,6 @@ public class Robot extends IterativeRobot {
     private void log() {
         driveTrain.log();
         conveyor.log();
-        conveyorElevator.log();
+        elevator.log();
     }
 }

@@ -8,32 +8,36 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ConveyorElevatorManual extends Command {
+public class DriveArcade extends Command {
 
-    public ConveyorElevatorManual() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.conveyorElevator);
+    public DriveArcade() {
+        requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.conveyorElevator.setModePercent();
+		// TODO Voir si on a besoin d'une protection au niveau de la vitesse maximale
+    	Robot.driveTrain.setMaxOutput(0.5);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.conveyorElevator.setValue(Robot.oi.getJoystickDriverAxis(XBoxAxis.RightStickY, 0.1));
+    	double moveValue = Robot.oi.getJoystickDriverAxis(XBoxAxis.RightTrigger) - Robot.oi.getJoystickDriverAxis(XBoxAxis.LeftTrigger);
+    	double rotateValue = Robot.oi.getJoystickDriverAxis(XBoxAxis.LeftStickX, 0.1);
+    	
+    	Robot.driveTrain.arcadeDrive(moveValue, -rotateValue);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	// Execute this command until interrupted
         return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.conveyorElevator.stop();
+    	// Stop the robot when interrupted
+    	Robot.driveTrain.tankdrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same
