@@ -16,7 +16,7 @@ public class DriveArcade extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		// TODO Voir si on a besoin d'une protection au niveau de la vitesse maximale
+		// TODO Voir si on veut limiter la vitesse maximale
     	Robot.driveTrain.setMaxOutput(0.5);
     }
 

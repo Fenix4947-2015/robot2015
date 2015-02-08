@@ -2,46 +2,40 @@ package org.usfirst.frc4947.robot2015.commands;
 
 import org.usfirst.frc4947.robot2015.Robot;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ElevatorPosition extends Command {
-	private final static double TOLERANCE = 20;
+public class DriveBackward extends Command {
+
+	private double timeout;
 	
-	public double position;
-	
-    public ElevatorPosition(double position) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.elevator);
-    	
-    	this.position = position;
+    public DriveBackward(double timeout) {
+        requires(Robot.driveTrain);
+        
+        this.timeout = timeout;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.elevator.setModePosition();
-    	Robot.elevator.setValue(position);
-    	Timer.delay(0.1);
+    	setTimeout(timeout);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	// SetPoint must be set repeatedly if we don't want the safety feature to disable the motor
-    	Robot.elevator.setValue(position);
+    	Robot.driveTrain.tankdrive(-0.5, -0.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Math.abs(Robot.elevator.getClosedLoopError()) <= TOLERANCE;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.elevator.stop();
+    	// Stop the robot when interrupted
+    	Robot.driveTrain.tankdrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same

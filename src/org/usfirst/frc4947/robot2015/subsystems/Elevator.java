@@ -12,6 +12,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class Elevator extends Subsystem {
+	public final static int STACK = 0;
+	public final static int HOOK = 300;
+	public final static int SLOWDOWN = 2300;
+	public final static int ACCEPT = 3500;
+	public final static int TRANSPORT = 4000;
+	public final static int DELIVER = 4650;
+
+	
     private CANTalon motorMaster = new CANTalon(5);
     private CANTalon motorSlave = new CANTalon(6);
     

@@ -3,6 +3,7 @@ package org.usfirst.frc4947.robot2015.subsystems;
 import org.usfirst.frc4947.robot2015.commands.ConveyorStop;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -17,6 +18,7 @@ public class Conveyor extends Subsystem {
     
 	private DigitalInput limitSwitchLeft = new DigitalInput(2);
 	private DigitalInput limitSwitchRight = new DigitalInput(3);
+	private DigitalOutput greenLight = new DigitalOutput(4);
 
     public Conveyor(){
     	super();
@@ -40,6 +42,10 @@ public class Conveyor extends Subsystem {
     
     public boolean getLimitSwitchRight(){
     	return limitSwitchRight.get();
+    }
+    
+    public void setGreenLight(boolean state){
+    	greenLight.set(state);
     }
     
     public void log() {

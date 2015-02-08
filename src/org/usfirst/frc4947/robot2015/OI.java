@@ -1,22 +1,27 @@
 package org.usfirst.frc4947.robot2015;
 
-import org.usfirst.frc4947.robot2015.commands.DriveAutoAlign;
 import org.usfirst.frc4947.robot2015.commands.AutonomousSimple;
-import org.usfirst.frc4947.robot2015.commands.DriveStraight;
-import org.usfirst.frc4947.robot2015.commands.ElevatorHookHold;
-import org.usfirst.frc4947.robot2015.commands.ElevatorDown;
-import org.usfirst.frc4947.robot2015.commands.ElevatorHome;
-import org.usfirst.frc4947.robot2015.commands.ElevatorManual;
-import org.usfirst.frc4947.robot2015.commands.ElevatorPercent;
-import org.usfirst.frc4947.robot2015.commands.ElevatorPosition;
-import org.usfirst.frc4947.robot2015.commands.ElevatorResetEncoder;
-import org.usfirst.frc4947.robot2015.commands.ElevatorStack;
-import org.usfirst.frc4947.robot2015.commands.ElevatorStop;
 import org.usfirst.frc4947.robot2015.commands.ConveyorIn;
 import org.usfirst.frc4947.robot2015.commands.ConveyorManual;
 import org.usfirst.frc4947.robot2015.commands.ConveyorOut;
 import org.usfirst.frc4947.robot2015.commands.ConveyorStop;
+import org.usfirst.frc4947.robot2015.commands.DriveAutoAlign;
+import org.usfirst.frc4947.robot2015.commands.DriveBackward;
+import org.usfirst.frc4947.robot2015.commands.DriveForward;
+import org.usfirst.frc4947.robot2015.commands.DriveRotate180;
+import org.usfirst.frc4947.robot2015.commands.ElevatorDown;
+import org.usfirst.frc4947.robot2015.commands.ElevatorHome;
+import org.usfirst.frc4947.robot2015.commands.ElevatorHookHold;
 import org.usfirst.frc4947.robot2015.commands.ElevatorHookRelease;
+import org.usfirst.frc4947.robot2015.commands.ElevatorManual;
+import org.usfirst.frc4947.robot2015.commands.ElevatorPercent;
+import org.usfirst.frc4947.robot2015.commands.ElevatorPosition;
+import org.usfirst.frc4947.robot2015.commands.ElevatorStack;
+import org.usfirst.frc4947.robot2015.commands.ElevatorStop;
+import org.usfirst.frc4947.robot2015.commands.ElevatorUnstack;
+import org.usfirst.frc4947.robot2015.commands.RobotDeliverStart;
+import org.usfirst.frc4947.robot2015.commands.RobotStackUnstack;
+import org.usfirst.frc4947.robot2015.subsystems.Elevator;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -97,7 +102,9 @@ public class OI {
         SmartDashboard.putData("AutonomousCommand", new AutonomousSimple());
         
         SmartDashboard.putData("DriveAutoAlign", new DriveAutoAlign());
-        SmartDashboard.putData("DriveStraight(1)", new DriveStraight(1));
+        SmartDashboard.putData("DriveForward(1)", new DriveForward(1));
+        SmartDashboard.putData("DriveBackward(1)", new DriveBackward(1));
+        SmartDashboard.putData("DriveRotate180", new DriveRotate180());
         
         SmartDashboard.putData("ConveyorStop", new ConveyorStop());
         SmartDashboard.putData("ConveyorIn", new ConveyorIn());
@@ -106,19 +113,28 @@ public class OI {
         SmartDashboard.putData("ConveyorManual", new ConveyorManual());
         
         SmartDashboard.putData("ElevatorStop", new ElevatorStop());
-        SmartDashboard.putData("ElevatorResetEncoder", new ElevatorResetEncoder());
         SmartDashboard.putData("ElevatorHome", new ElevatorHome());
         SmartDashboard.putData("ElevatorManual", new ElevatorManual());
-        SmartDashboard.putData("ElevatorPosition(0)", new ElevatorPosition(0));
-        SmartDashboard.putData("ElevatorPosition(2200)", new ElevatorPosition(2200));
-        SmartDashboard.putData("ElevatorPosition(4000)", new ElevatorPosition(4000));
-        SmartDashboard.putData("ElevatorPosition(4650)", new ElevatorPosition(4650));
+        SmartDashboard.putData("ElevatorPosition(STACK)", new ElevatorPosition(Elevator.STACK));
+        SmartDashboard.putData("ElevatorPosition(SLOWDOWN)", new ElevatorPosition(Elevator.SLOWDOWN));
+        SmartDashboard.putData("ElevatorPosition(ACCEPT)", new ElevatorPosition(Elevator.ACCEPT));
+        SmartDashboard.putData("ElevatorPosition(TRANSPORT)", new ElevatorPosition(Elevator.TRANSPORT));
+        SmartDashboard.putData("ElevatorPosition(DELIVER)", new ElevatorPosition(Elevator.DELIVER));
         SmartDashboard.putData("ElevatorPercent(0.25, 1000)", new ElevatorPercent(0.25, 1000));
         SmartDashboard.putData("ElevatorPosition(0.25, 3000)", new ElevatorPercent(0.25,  3000));
         SmartDashboard.putData("ElevatorHookRelease", new ElevatorHookRelease());
         SmartDashboard.putData("ElevatorHookHold", new ElevatorHookHold());
         SmartDashboard.putData("ElevatorStack", new ElevatorStack());
         SmartDashboard.putData("ElevatorDown", new ElevatorDown());
+        SmartDashboard.putData("ElevatorUnstack", new ElevatorUnstack());
+        
+        SmartDashboard.putData("RobotStackUnstack(1)", new RobotStackUnstack(1));
+        SmartDashboard.putData("RobotStackUnstack(2)", new RobotStackUnstack(2));
+        SmartDashboard.putData("RobotStackUnstack(3)", new RobotStackUnstack(3));
+        SmartDashboard.putData("RobotStackUnstack(4)", new RobotStackUnstack(4));
+        SmartDashboard.putData("RobotStackUnstack(5)", new RobotStackUnstack(5));
+        SmartDashboard.putData("RobotStackUnstack(6)", new RobotStackUnstack(6));
+        SmartDashboard.putData("RobotDeliverStack)", new RobotDeliverStart());
 
     }
     

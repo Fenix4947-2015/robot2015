@@ -7,24 +7,21 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveStraight extends Command {
+public class DriveRotate180 extends Command {
 
-	private double timeout;
-	
-    public DriveStraight(double timeout) {
+    public DriveRotate180() {
         requires(Robot.driveTrain);
-        
-        this.timeout = timeout;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(timeout);
+    	// TODO Trouver la bonne valeur de temps pour faire un 180
+    	setTimeout(1.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.tankdrive(0.5, 0.5);
+    	Robot.driveTrain.tankdrive(-0.5, 0.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
