@@ -19,7 +19,7 @@ import org.usfirst.frc4947.robot2015.commands.ElevatorPosition;
 import org.usfirst.frc4947.robot2015.commands.ElevatorStack;
 import org.usfirst.frc4947.robot2015.commands.ElevatorStop;
 import org.usfirst.frc4947.robot2015.commands.ElevatorUnstack;
-import org.usfirst.frc4947.robot2015.commands.RobotDeliverStart;
+import org.usfirst.frc4947.robot2015.commands.RobotDeliverStack;
 import org.usfirst.frc4947.robot2015.commands.RobotStackUnstack;
 import org.usfirst.frc4947.robot2015.subsystems.Elevator;
 
@@ -134,7 +134,7 @@ public class OI {
         SmartDashboard.putData("RobotStackUnstack(4)", new RobotStackUnstack(4));
         SmartDashboard.putData("RobotStackUnstack(5)", new RobotStackUnstack(5));
         SmartDashboard.putData("RobotStackUnstack(6)", new RobotStackUnstack(6));
-        SmartDashboard.putData("RobotDeliverStack)", new RobotDeliverStart());
+        SmartDashboard.putData("RobotDeliverStack)", new RobotDeliverStack());
 
     }
     

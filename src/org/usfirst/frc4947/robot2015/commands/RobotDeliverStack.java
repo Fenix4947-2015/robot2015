@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class RobotDeliverStart extends CommandGroup {
+public class RobotDeliverStack extends CommandGroup {
     
-    public  RobotDeliverStart() {
+    public  RobotDeliverStack() {
     	// TODO Determiner tous les temps pour la sequence de livraison d'un pile
     	
     	// Align the robot with the step
