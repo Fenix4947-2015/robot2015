@@ -43,11 +43,11 @@ public class  ConveyorIn extends Command {
     			// Record the timestamp to start timeout timer
     			timestamp = Timer.getFPGATimestamp();
     		}
-    		else{
-    			// Reset the timestamp since no limit are activated
-    			timestamp = 0;
-    		}
     	}
+		else{
+			// Reset the timestamp since no limit are activated
+			timestamp = 0;
+		}
     }
     
     public double timeSinceLimitSwitch() {

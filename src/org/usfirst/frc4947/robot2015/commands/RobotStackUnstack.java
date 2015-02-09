@@ -13,13 +13,14 @@ public class RobotStackUnstack extends CommandGroup {
     
     public  RobotStackUnstack(int nbTote) {
     	if(nbTote >= 1 && nbTote <= 6){
-	    	// Prepare to receive tote
-	    	addParallel(new ElevatorHookHold());
-	    	addParallel(new ElevatorPosition(Elevator.ACCEPT));
-	    	addParallel(new ConveyorIn());
-	    	
 	    	// Start the stacking sequence if more than one tote
-	    	if(nbTote > 1){
+
+	    	// Prepare to receive tote
+    		addSequential(new ElevatorHookHold());
+	    	addSequential(new ElevatorPosition(Elevator.ACCEPT));
+	    	addSequential(new ConveyorIn());
+	    	
+    		if(nbTote > 1){
 		    	// Stack First Tote
 		    	addSequential(new ElevatorStackFirst());
 
@@ -39,7 +40,7 @@ public class RobotStackUnstack extends CommandGroup {
 	    	}
 	    	
 	    	// Prepare robot for next step
-	    	addParallel(new DriveBackwardAndRotate180(0.5));
+	    	addParallel(new DriveBackwardAndRotate180(2));
     	}
     }
     

@@ -16,7 +16,7 @@ public class DriveRotate180 extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	// TODO Trouver la bonne valeur de temps pour faire un 180
-    	setTimeout(1.0);
+    	setTimeout(3.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
