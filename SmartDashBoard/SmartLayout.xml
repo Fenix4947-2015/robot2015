@@ -1,0 +1,142 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="DriveTrainRight" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="69" y="178"/>
+	</widget>
+	<widget field="DriveTrainLeft" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="68" y="161"/>
+	</widget>
+	<widget field="ConveyorRight" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="255" y="175"/>
+	</widget>
+	<widget field="ConveyorLeft" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="254" y="157"/>
+	</widget>
+	<widget field="ElevatorPosition" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="465" y="119"/>
+	</widget>
+	<widget field="RobotDeliverStack)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="736" y="360"/>
+	</widget>
+	<widget field="Conveyor" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="48" y="29"/>
+		<width>296</width>
+	</widget>
+	<widget field="DriveForward(1)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="26" y="259"/>
+	</widget>
+	<widget field="Elevator" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="55" y="53"/>
+		<width>289</width>
+	</widget>
+	<widget field="RobotStackUnstack(1)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="721" y="195"/>
+	</widget>
+	<widget field="ElevatorUnstack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="464" y="467"/>
+	</widget>
+	<widget field="ElevatorPosition(ACCEPT)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="419" y="310"/>
+	</widget>
+	<widget field="ElevatorPercent(0.25, 1000)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="404" y="580"/>
+	</widget>
+	<widget field="ElevatorDown" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="476" y="441"/>
+	</widget>
+	<widget field="ConveyorStop" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="222" y="227"/>
+	</widget>
+	<widget field="RobotStackUnstack(4)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="722" y="276"/>
+	</widget>
+	<widget field="ElevatorHookHold" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="457" y="513"/>
+	</widget>
+	<widget field="ElevatorPosition(TRANSPORT)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="398" y="336"/>
+	</widget>
+	<widget field="AutonomousSimple" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="22" y="453"/>
+	</widget>
+	<widget field="ElevatorPosition(0.25, 3000)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="405" y="606"/>
+	</widget>
+	<widget field="ElevatorPosition(DELIVER)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="417" y="364"/>
+	</widget>
+	<widget field="ElevatorManual" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="468" y="200"/>
+	</widget>
+	<widget field="DriveRotate180" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="29" y="286"/>
+	</widget>
+	<widget field="ConveyorOut(0.5)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="200" y="281"/>
+	</widget>
+	<widget field="RobotStackUnstack(3)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="721" y="249"/>
+	</widget>
+	<widget field="DriveBackward(1)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="20" y="231"/>
+	</widget>
+	<widget field="ElevatorStop" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="480" y="228"/>
+	</widget>
+	<widget field="ElevatorStack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="476" y="415"/>
+	</widget>
+	<widget field="AutonomousMode" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="1037" y="30"/>
+	</widget>
+	<widget field="RobotStackUnstack(6)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="720" y="332"/>
+	</widget>
+	<widget field="DriveAutoAlign" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="34" y="203"/>
+	</widget>
+	<widget field="DriveTrain" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="46" y="6"/>
+		<width>298</width>
+	</widget>
+	<widget field="ConveyorManual" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="211" y="200"/>
+	</widget>
+	<widget field="ConveyorIn" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="233" y="254"/>
+	</widget>
+	<widget field="ElevatorHome" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="474" y="173"/>
+	</widget>
+	<widget field="RobotStackUnstack(2)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="721" y="222"/>
+	</widget>
+	<widget field="ElevatorPosition(STACK)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="425" y="255"/>
+	</widget>
+	<widget field="ElevatorPosition(SLOWDOWN)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="397" y="283"/>
+	</widget>
+	<widget field="ConveyorOut(5)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="209" y="308"/>
+	</widget>
+	<widget field="RobotStackUnstack(5)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="721" y="304"/>
+	</widget>
+	<widget field="ElevatorHookRelease" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="440" y="541"/>
+	</widget>
+	<widget field="ElevatorClosedLoopError" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="423" y="77"/>
+		<height>20</height>
+	</widget>
+	<widget field="ElevatorGet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="485" y="98"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+	<hidden field="ElevatorSetPosition"/>
+	<hidden field="ElevatorFwdDirection"/>
+	<hidden field="ElevatorPercent"/>
+</xml>
