@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveTrain extends Subsystem {
-	private Gyro gyro = new Gyro(0);
+	private Gyro gyro = new Gyro(1);
 	private BuiltInAccelerometer accelerometer = new BuiltInAccelerometer();
 	
 	private DigitalInput antennaLeft = new DigitalInput(0);
@@ -65,9 +65,18 @@ public class DriveTrain extends Subsystem {
     	robotDrive.setMaxOutput(maxOutput);
     }
     
+    public void initGyro(){
+    	gyro.initGyro();
+    }
+    
+    public double getGyroAngle(){
+    	return gyro.getAngle();
+    }
+    
     public void log() {
         SmartDashboard.putBoolean("DriveTrainLeft", getAntennaLeft());
         SmartDashboard.putBoolean("DriveTrainRight", getAntennaRight());
+        SmartDashboard.putNumber("Gyro", getGyroAngle());
     }
 }
 

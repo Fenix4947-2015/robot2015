@@ -1,5 +1,11 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Gyro" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="36" y="407"/>
+	</widget>
+	<widget field="DriveGyroInit" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="45" y="321"/>
+	</widget>
 	<widget field="DriveTrainRight" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
 		<location x="69" y="178"/>
 	</widget>
@@ -136,7 +142,4 @@
 </dashboard>
 <live-window>
 </live-window>
-	<hidden field="ElevatorSetPosition"/>
-	<hidden field="ElevatorFwdDirection"/>
-	<hidden field="ElevatorPercent"/>
 </xml>

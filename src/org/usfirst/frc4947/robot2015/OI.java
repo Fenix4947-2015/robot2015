@@ -8,6 +8,7 @@ import org.usfirst.frc4947.robot2015.commands.ConveyorStop;
 import org.usfirst.frc4947.robot2015.commands.DriveAutoAlign;
 import org.usfirst.frc4947.robot2015.commands.DriveBackward;
 import org.usfirst.frc4947.robot2015.commands.DriveForward;
+import org.usfirst.frc4947.robot2015.commands.DriveGyroInit;
 import org.usfirst.frc4947.robot2015.commands.DriveRotate180;
 import org.usfirst.frc4947.robot2015.commands.ElevatorDown;
 import org.usfirst.frc4947.robot2015.commands.ElevatorHome;
@@ -105,6 +106,7 @@ public class OI {
         SmartDashboard.putData("DriveForward(1)", new DriveForward(1));
         SmartDashboard.putData("DriveBackward(1)", new DriveBackward(1));
         SmartDashboard.putData("DriveRotate180", new DriveRotate180());
+        SmartDashboard.putData("DriveGyroInit", new DriveGyroInit());
         
         SmartDashboard.putData("ConveyorStop", new ConveyorStop());
         SmartDashboard.putData("ConveyorIn", new ConveyorIn());
