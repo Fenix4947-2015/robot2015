@@ -53,14 +53,14 @@ public class OI {
 	}
 	
 	public enum XBoxButton{
-		A(0),
-		B(1),
-		X(2),
-		Y(3),
-		LB(4),
-		RB(5),
-		Back(6),
-		Start(7);
+		A(1),
+		B(2),
+		X(3),
+		Y(4),
+		LB(5),
+		RB(6),
+		Back(7),
+		Start(8);
 
 		private int value;
 		XBoxButton(int value){

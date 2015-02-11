@@ -46,6 +46,6 @@ public class RobotStackUnstack extends CommandGroup {
     
     @Override
     protected boolean isFinished() {
-    	return super.isFinished() || Robot.oi.getJoystickDriverButton(XBoxButton.X);
+    	return super.isFinished() || Robot.oi.getJoystickDriverButton(XBoxButton.Back);
     }
 }

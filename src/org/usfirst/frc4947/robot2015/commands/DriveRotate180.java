@@ -1,6 +1,8 @@
 package org.usfirst.frc4947.robot2015.commands;
 
+import org.usfirst.frc4947.robot2015.OI;
 import org.usfirst.frc4947.robot2015.Robot;
+import org.usfirst.frc4947.robot2015.OI.XBoxButton;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -17,7 +19,7 @@ public class DriveRotate180 extends Command {
     protected void initialize() {
     	// TODO Trouver la bonne valeur de temps pour faire un 180
     	//Robot.driveTrain.initGyro();
-    	//setTimeout(10.0);
+    	setTimeout(10.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -28,7 +30,7 @@ public class DriveRotate180 extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return isTimedOut();
+    	return (isTimedOut() || Robot.oi.getJoystickDriverButton(XBoxButton.Back));
     }
 
     // Called once after isFinished returns true

@@ -1,7 +1,12 @@
 <xml version="1.0">
 <dashboard>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
+		<location x="740" y="123"/>
+		<width>721</width>
+		<height>750</height>
+	</static-widget>
 	<widget field="Gyro" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="36" y="407"/>
+		<location x="740" y="9"/>
 	</widget>
 	<widget field="DriveGyroInit" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="45" y="321"/>
@@ -19,10 +24,10 @@
 		<location x="254" y="157"/>
 	</widget>
 	<widget field="ElevatorPosition" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="465" y="119"/>
+		<location x="452" y="81"/>
 	</widget>
 	<widget field="RobotDeliverStack)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="736" y="360"/>
+		<location x="44" y="632"/>
 	</widget>
 	<widget field="Conveyor" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
 		<location x="48" y="29"/>
@@ -36,7 +41,7 @@
 		<width>289</width>
 	</widget>
 	<widget field="RobotStackUnstack(1)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="721" y="195"/>
+		<location x="34" y="417"/>
 	</widget>
 	<widget field="ElevatorUnstack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="464" y="467"/>
@@ -54,7 +59,7 @@
 		<location x="222" y="227"/>
 	</widget>
 	<widget field="RobotStackUnstack(4)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="722" y="276"/>
+		<location x="30" y="529"/>
 	</widget>
 	<widget field="ElevatorHookHold" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="457" y="513"/>
@@ -63,7 +68,7 @@
 		<location x="398" y="336"/>
 	</widget>
 	<widget field="AutonomousSimple" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="22" y="453"/>
+		<location x="959" y="73"/>
 	</widget>
 	<widget field="ElevatorPosition(0.25, 3000)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="405" y="606"/>
@@ -81,7 +86,7 @@
 		<location x="200" y="281"/>
 	</widget>
 	<widget field="RobotStackUnstack(3)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="721" y="249"/>
+		<location x="32" y="493"/>
 	</widget>
 	<widget field="DriveBackward(1)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="20" y="231"/>
@@ -93,10 +98,10 @@
 		<location x="476" y="415"/>
 	</widget>
 	<widget field="AutonomousMode" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
-		<location x="1037" y="30"/>
+		<location x="953" y="5"/>
 	</widget>
 	<widget field="RobotStackUnstack(6)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="720" y="332"/>
+		<location x="28" y="596"/>
 	</widget>
 	<widget field="DriveAutoAlign" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="34" y="203"/>
@@ -115,7 +120,7 @@
 		<location x="474" y="173"/>
 	</widget>
 	<widget field="RobotStackUnstack(2)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="721" y="222"/>
+		<location x="31" y="452"/>
 	</widget>
 	<widget field="ElevatorPosition(STACK)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="425" y="255"/>
@@ -127,17 +132,17 @@
 		<location x="209" y="308"/>
 	</widget>
 	<widget field="RobotStackUnstack(5)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="721" y="304"/>
+		<location x="30" y="563"/>
 	</widget>
 	<widget field="ElevatorHookRelease" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="440" y="541"/>
 	</widget>
 	<widget field="ElevatorClosedLoopError" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="423" y="77"/>
-		<height>20</height>
+		<location x="390" y="10"/>
+		<height>27</height>
 	</widget>
 	<widget field="ElevatorGet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="485" y="98"/>
+		<location x="484" y="40"/>
 	</widget>
 </dashboard>
 <live-window>
