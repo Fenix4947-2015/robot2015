@@ -7,31 +7,27 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveBackward extends Command {
-
-	private double timeout;
+public class DriveAutoLimit extends Command {
 	private double speed;
-	
-    public DriveBackward(double speed, double timeout) {
+
+    public DriveAutoLimit(double speed) {
         requires(Robot.driveTrain);
         
         this.speed = speed;
-        this.timeout = timeout;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(timeout);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.tankdrive(-speed, -speed);
+    	Robot.driveTrain.tankdrive(speed, speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return Robot.driveTrain.getAntennaLeft() || Robot.driveTrain.getAntennaRight();
     }
 
     // Called once after isFinished returns true

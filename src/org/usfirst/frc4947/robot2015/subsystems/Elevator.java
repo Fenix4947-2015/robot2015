@@ -13,17 +13,17 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Elevator extends Subsystem {
 	public final static int STACK = 0;
-	public final static int HOOK = 300;
-	public final static int SLOWDOWN = 2300;
-	public final static int ACCEPT = 3500;
-	public final static int TRANSPORT = 4000;
-	public final static int DELIVER = 4650;
+	public final static int SLOWDOWN = 400;
+	public final static int HOOK = 1600;
+	public final static int ACCEPT = 4000;
+	public final static int TRANSPORT = 5000;
+	public final static int DELIVER = 5000;
 
 	
     private CANTalon motorMaster = new CANTalon(5);
     private CANTalon motorSlave = new CANTalon(6);
     
-    private Solenoid releaseHook = new Solenoid(5);
+    private Solenoid releaseHook = new Solenoid(1);
 
     // Initialize your subsystem here
     public Elevator() {
@@ -86,5 +86,7 @@ public class Elevator extends Subsystem {
     	SmartDashboard.putNumber("ElevatorGet", motorMaster.get());
         SmartDashboard.putNumber("ElevatorPosition", motorMaster.getPosition());
         SmartDashboard.putNumber("ElevatorClosedLoopError", motorMaster.getClosedLoopError());
+        SmartDashboard.putBoolean("ElevatorLimitUp", motorMaster.isRevLimitSwitchClosed());
+        SmartDashboard.putBoolean("ElevatorLimitDown", motorMaster.isFwdLimitSwitchClosed());
     }
 }

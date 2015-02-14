@@ -10,10 +10,12 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveForward extends Command {
 
 	private double timeout;
+	private double speed;
 	
-    public DriveForward(double timeout) {
+    public DriveForward(double speed, double timeout) {
         requires(Robot.driveTrain);
         
+        this.speed = speed;
         this.timeout = timeout;
     }
 
@@ -24,7 +26,7 @@ public class DriveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.tankdrive(0.5, 0.5);
+    	Robot.driveTrain.tankdrive(speed, speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

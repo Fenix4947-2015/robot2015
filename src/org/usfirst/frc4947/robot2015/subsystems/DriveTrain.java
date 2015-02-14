@@ -19,15 +19,13 @@ public class DriveTrain extends Subsystem {
 	private Gyro gyro = new Gyro(1);
 	private BuiltInAccelerometer accelerometer = new BuiltInAccelerometer();
 	
-	private DigitalInput antennaLeft = new DigitalInput(0);
-	private DigitalInput antennaRight = new DigitalInput(1);
+	private DigitalInput antennaLeft = new DigitalInput(1);
+	private DigitalInput antennaRight = new DigitalInput(0      );
     
-	private CANTalon motorRearLeft = new CANTalon(0);
-	private CANTalon motorFrontLeft = new CANTalon(1);
-	private CANTalon motorFrontRight = new CANTalon(2);
-    private CANTalon motorRearRight = new CANTalon(3);
+	private CANTalon motorLeft = new CANTalon(0);
+	private CANTalon motorRight = new CANTalon(1);
     
-    RobotDrive robotDrive = new RobotDrive(motorFrontLeft, motorRearLeft, motorFrontRight, motorRearRight);
+    RobotDrive robotDrive = new RobotDrive(motorLeft, motorRight);
 
     public DriveTrain() {
 		super();
@@ -72,7 +70,7 @@ public class DriveTrain extends Subsystem {
     public double getGyroAngle(){
     	return gyro.getAngle();
     }
-    
+
     public void log() {
         SmartDashboard.putBoolean("DriveTrainLeft", getAntennaLeft());
         SmartDashboard.putBoolean("DriveTrainRight", getAntennaRight());

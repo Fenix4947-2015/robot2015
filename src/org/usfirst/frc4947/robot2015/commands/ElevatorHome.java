@@ -18,7 +18,7 @@ public class ElevatorHome extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.elevator.setModePercent();
-    	Robot.elevator.setValue(-0.25);
+    	Robot.elevator.setValue(-0.5);
     }
 
     // Called repeatedly when this Command is scheduled to run

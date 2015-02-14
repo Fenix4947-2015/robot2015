@@ -18,29 +18,31 @@ public class RobotStackUnstack extends CommandGroup {
 	    	// Prepare to receive tote
     		addSequential(new ElevatorHookHold());
 	    	addSequential(new ElevatorPosition(Elevator.ACCEPT));
-	    	addSequential(new ConveyorIn());
 	    	
     		if(nbTote > 1){
-		    	// Stack First Tote
-		    	addSequential(new ElevatorStackFirst());
-
-		    	// Stack Other Tote
-		    	for(int i = 1; i < nbTote; i++){
-			    	addSequential(new ElevatorDown());
+		    	for(int i = 1; i <= nbTote; i++){
 			    	addSequential(new ConveyorIn());
-			    	addSequential(new ElevatorStack());
+			    	
+			    	if(i < nbTote){
+			    		addSequential(new ElevatorStack());
+				    	addSequential(new ElevatorDown());
+				    	addSequential(new DriveForward(0.5, 0.5));
+			    	}
+			    	else{
+				    	// Unstack all the tote
+				    	addSequential(new ElevatorUnstack());
+			    	}
 		    	}
-		    	
-		    	// Unstack all the tote
-		    	addParallel(new ElevatorUnstack());
 	    	}
 	    	else{
 	    		// If only one tote, just move elevator to transport position
-		    	addParallel(new ElevatorPercent(0.5, Elevator.TRANSPORT));
+	    		addSequential(new ConveyorIn());
+	    		addSequential(new ElevatorPercent(0.5, Elevator.TRANSPORT));
 	    	}
 	    	
 	    	// Prepare robot for next step
-	    	addParallel(new DriveBackwardAndRotate180(2));
+    		// TODO Remettre la rotation automatique
+	    	//addParallel(new DriveBackwardAndRotate180(2));
     	}
     }
     

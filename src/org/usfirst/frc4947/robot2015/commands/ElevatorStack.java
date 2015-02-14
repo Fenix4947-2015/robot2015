@@ -10,7 +10,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class ElevatorStack extends CommandGroup {
     
     public  ElevatorStack() {
-    	addSequential(new ElevatorPercent(1, Elevator.SLOWDOWN));
-    	addSequential(new ElevatorPercent(.35, Elevator.STACK));
+    	addSequential(new ElevatorPosition(Elevator.STACK));
+    	//addSequential(new ElevatorPercent(1, Elevator.SLOWDOWN));
+    	//addSequential(new ElevatorPercent(.35, Elevator.STACK));
     }
 }

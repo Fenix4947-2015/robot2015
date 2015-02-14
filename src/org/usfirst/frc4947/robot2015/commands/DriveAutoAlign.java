@@ -8,9 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveAutoAlign extends Command {
+	private double speed;;
 
-    public DriveAutoAlign() {
+    public DriveAutoAlign(double speed) {
         requires(Robot.driveTrain);
+        
+        this.speed = speed;
     }
 
     // Called just before this Command runs the first time
@@ -19,15 +22,17 @@ public class DriveAutoAlign extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double leftValue = 0.5;
-    	double rightValue = 0.5;
+    	double leftValue = speed;
+    	double rightValue = speed;
     	
-    	if(!Robot.driveTrain.getAntennaLeft()){
-    		leftValue = 0;
+    	if(Robot.driveTrain.getAntennaLeft()){
+    		leftValue = -speed;
+    		rightValue = 1.0;
     	}
     	
-    	if(!Robot.driveTrain.getAntennaRight()){
-    		rightValue = 0;
+    	if(Robot.driveTrain.getAntennaRight()){
+    		leftValue = 1.0;
+    		rightValue = -speed;
     	}
     	
     	Robot.driveTrain.tankdrive(leftValue, rightValue);
@@ -35,7 +40,7 @@ public class DriveAutoAlign extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !Robot.driveTrain.getAntennaLeft() && !Robot.driveTrain.getAntennaRight();
+        return Robot.driveTrain.getAntennaLeft() && Robot.driveTrain.getAntennaRight();
     }
 
     // Called once after isFinished returns true

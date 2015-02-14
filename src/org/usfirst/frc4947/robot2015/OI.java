@@ -102,9 +102,9 @@ public class OI {
     	// SmartDashboard Buttons
         SmartDashboard.putData("AutonomousSimple", new AutonomousSimple());
         
-        SmartDashboard.putData("DriveAutoAlign", new DriveAutoAlign());
-        SmartDashboard.putData("DriveForward(1)", new DriveForward(1));
-        SmartDashboard.putData("DriveBackward(1)", new DriveBackward(1));
+        SmartDashboard.putData("DriveAutoAlign", new DriveAutoAlign(0.6));
+        SmartDashboard.putData("DriveForward(1)", new DriveForward(0.75, 1));
+        SmartDashboard.putData("DriveBackward(1)", new DriveBackward(0.75, 1));
         SmartDashboard.putData("DriveRotate180", new DriveRotate180());
         SmartDashboard.putData("DriveGyroInit", new DriveGyroInit());
         

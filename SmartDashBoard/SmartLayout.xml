@@ -1,5 +1,14 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="ElevatorStackLast" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="456" y="425"/>
+	</widget>
+	<widget field="ElevatorLimitUp" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="504" y="128"/>
+	</widget>
+	<widget field="ElevatorLimitDown" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="505" y="150"/>
+	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
 		<location x="740" y="123"/>
 		<width>721</width>
@@ -44,7 +53,7 @@
 		<location x="34" y="417"/>
 	</widget>
 	<widget field="ElevatorUnstack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="464" y="467"/>
+		<location x="464" y="478"/>
 	</widget>
 	<widget field="ElevatorPosition(ACCEPT)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="419" y="310"/>
@@ -53,7 +62,7 @@
 		<location x="404" y="580"/>
 	</widget>
 	<widget field="ElevatorDown" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="476" y="441"/>
+		<location x="476" y="451"/>
 	</widget>
 	<widget field="ConveyorStop" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="222" y="227"/>
@@ -95,7 +104,7 @@
 		<location x="480" y="228"/>
 	</widget>
 	<widget field="ElevatorStack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="476" y="415"/>
+		<location x="475" y="399"/>
 	</widget>
 	<widget field="AutonomousMode" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
 		<location x="953" y="5"/>

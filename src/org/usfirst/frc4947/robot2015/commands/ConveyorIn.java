@@ -38,7 +38,7 @@ public class  ConveyorIn extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	// TODO Voir si on voudrait compter le temps seulement quand les 2 switch sont active en meme temps
-    	if(!Robot.conveyor.getLimitSwitchLeft() || !Robot.conveyor.getLimitSwitchRight()){
+    	if(!Robot.conveyor.getLimitSwitchLeft() && !Robot.conveyor.getLimitSwitchRight()){
     		if(timestamp == 0){
     			// Record the timestamp to start timeout timer
     			timestamp = Timer.getFPGATimestamp();
