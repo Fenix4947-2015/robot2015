@@ -22,7 +22,7 @@ public class DriveTank extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.tankdrive(Robot.oi.getJoystickDriverAxis(XBoxAxis.LeftTrigger), Robot.oi.getJoystickDriverAxis(XBoxAxis.RightTrigger));
+    	Robot.driveTrain.tankdrive(Robot.oi.getJoystickDriverAxis(XBoxAxis.LeftStickY), Robot.oi.getJoystickDriverAxis(XBoxAxis.RightStickY));
     }
 
     // Make this return true when this Command no longer needs to run execute()
