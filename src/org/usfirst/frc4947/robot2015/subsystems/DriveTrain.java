@@ -1,6 +1,7 @@
 package org.usfirst.frc4947.robot2015.subsystems;
 
 import org.usfirst.frc4947.robot2015.commands.DriveArcade;
+import org.usfirst.frc4947.robot2015.commands.DriveTank;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
@@ -16,11 +17,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveTrain extends Subsystem {
-	private Gyro gyro = new Gyro(1);
+	private Gyro gyro = new Gyro(0);
 	private BuiltInAccelerometer accelerometer = new BuiltInAccelerometer();
 	
 	private DigitalInput antennaLeft = new DigitalInput(1);
-	private DigitalInput antennaRight = new DigitalInput(0      );
+	private DigitalInput antennaRight = new DigitalInput(0);
     
 	private CANTalon motorLeft = new CANTalon(0);
 	private CANTalon motorRight = new CANTalon(1);
@@ -33,6 +34,9 @@ public class DriveTrain extends Subsystem {
 		// TODO Voir si on a besoin d'activer la securite
 		//robotDrive.setSafetyEnabled(true);
 
+		motorLeft.enableBrakeMode(false);
+		motorRight.enableBrakeMode(false);
+		
 		LiveWindow.addSensor("DriveTrain", "Gyro", gyro);      
 		LiveWindow.addSensor("DriveTrain", "Accelerometer", accelerometer);
         LiveWindow.addSensor("DriveTrain", "AntennaLeft", antennaLeft);
@@ -40,7 +44,8 @@ public class DriveTrain extends Subsystem {
 	}
     
     public void initDefaultCommand() {
-        setDefaultCommand(new DriveArcade());
+        //setDefaultCommand(new DriveArcade());
+    	setDefaultCommand(new DriveTank());
     }
     
     public void arcadeDrive(double moveValue, double rotateValue){
