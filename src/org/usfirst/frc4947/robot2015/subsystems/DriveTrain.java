@@ -23,11 +23,11 @@ public class DriveTrain extends Subsystem {
 	private DigitalInput antennaLeft = new DigitalInput(1);
 	private DigitalInput antennaRight = new DigitalInput(0);
     
-	private CANTalon motorLeftRear = new CANTalon(0);
-	private CANTalon motorRightRear = new CANTalon(1);
+	private CANTalon motorLeftRear = new CANTalon(2);
+	private CANTalon motorRightRear = new CANTalon(0);
 	
-	private CANTalon motorLeftFront = new CANTalon(2);
-	private CANTalon motorRightFront = new CANTalon(3);
+	private CANTalon motorLeftFront = new CANTalon(3);
+	private CANTalon motorRightFront = new CANTalon(1);
     
     RobotDrive robotDrive = new RobotDrive(motorLeftRear, motorLeftFront, motorRightRear, motorRightFront);
 
