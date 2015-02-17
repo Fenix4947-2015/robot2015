@@ -23,10 +23,13 @@ public class DriveTrain extends Subsystem {
 	private DigitalInput antennaLeft = new DigitalInput(1);
 	private DigitalInput antennaRight = new DigitalInput(0);
     
-	private CANTalon motorLeft = new CANTalon(0);
-	private CANTalon motorRight = new CANTalon(1);
+	private CANTalon motorLeftRear = new CANTalon(0);
+	private CANTalon motorRightRear = new CANTalon(1);
+	
+	private CANTalon motorLeftFront = new CANTalon(2);
+	private CANTalon motorRightFront = new CANTalon(3);
     
-    RobotDrive robotDrive = new RobotDrive(motorLeft, motorRight);
+    RobotDrive robotDrive = new RobotDrive(motorLeftRear, motorLeftFront, motorRightRear, motorRightFront);
 
     public DriveTrain() {
 		super();
@@ -34,8 +37,8 @@ public class DriveTrain extends Subsystem {
 		// TODO Voir si on a besoin d'activer la securite
 		//robotDrive.setSafetyEnabled(true);
 
-		motorLeft.enableBrakeMode(false);
-		motorRight.enableBrakeMode(false);
+		motorLeftRear.enableBrakeMode(false);
+		motorRightRear.enableBrakeMode(false);
 		
 		LiveWindow.addSensor("DriveTrain", "Gyro", gyro);      
 		LiveWindow.addSensor("DriveTrain", "Accelerometer", accelerometer);
