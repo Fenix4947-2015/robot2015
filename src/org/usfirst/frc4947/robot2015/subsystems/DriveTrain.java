@@ -37,8 +37,11 @@ public class DriveTrain extends Subsystem {
 		// TODO Voir si on a besoin d'activer la securite
 		//robotDrive.setSafetyEnabled(true);
 
-		motorLeftRear.enableBrakeMode(false);
-		motorRightRear.enableBrakeMode(false);
+		motorLeftRear.enableBrakeMode(true);
+		motorLeftFront.enableBrakeMode(true);
+		motorRightRear.enableBrakeMode(true);
+		motorRightFront.enableBrakeMode(true);
+
 		
 		LiveWindow.addSensor("DriveTrain", "Gyro", gyro);      
 		LiveWindow.addSensor("DriveTrain", "Accelerometer", accelerometer);
@@ -47,8 +50,8 @@ public class DriveTrain extends Subsystem {
 	}
     
     public void initDefaultCommand() {
-        //setDefaultCommand(new DriveArcade());
-    	setDefaultCommand(new DriveTank());
+        setDefaultCommand(new DriveArcade());
+    	//setDefaultCommand(new DriveTank());
     }
     
     public void arcadeDrive(double moveValue, double rotateValue){
