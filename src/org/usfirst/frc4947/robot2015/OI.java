@@ -26,6 +26,7 @@ import org.usfirst.frc4947.robot2015.commands.RobotStackUnstack;
 import org.usfirst.frc4947.robot2015.subsystems.Elevator;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick.RumbleType;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -142,6 +143,10 @@ public class OI {
     	}
     	
     	return axisValue;
+    }
+    
+    public void setJoystickDriverRumble(RumbleType rumbleType, float value){
+    	joystickDriver.setRumble(rumbleType, value);
     }
     
     public boolean getJoystickDriverButton(XBoxButton button) {

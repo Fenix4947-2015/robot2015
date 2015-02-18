@@ -17,7 +17,7 @@ public class Elevator extends Subsystem {
 	public final static int HOOK = 1600;
 	public final static int LIGHT = 2000;
 	public final static int ACCEPT = 4000;
-	public final static int TRANSPORT = 4800;
+	public final static int TRANSPORT = 4600;
 	public final static int DELIVER = 5000;
 
 	
@@ -84,9 +84,7 @@ public class Elevator extends Subsystem {
     }
     
     public void log() {
-    	SmartDashboard.putNumber("ElevatorGet", motorMaster.get());
         SmartDashboard.putNumber("ElevatorPosition", motorMaster.getPosition());
-        SmartDashboard.putNumber("ElevatorClosedLoopError", motorMaster.getClosedLoopError());
         SmartDashboard.putBoolean("ElevatorLimitUp", motorMaster.isRevLimitSwitchClosed());
         SmartDashboard.putBoolean("ElevatorLimitDown", motorMaster.isFwdLimitSwitchClosed());
     }

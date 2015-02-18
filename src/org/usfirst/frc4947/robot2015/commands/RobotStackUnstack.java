@@ -26,8 +26,8 @@ public class RobotStackUnstack extends CommandGroup {
 			    	
 			    	if(i < nbTote){
 			    		addSequential(new ElevatorStack());
-			    		addParallel(new ElevatorDown());
-			    		addParallel(new DriveForward(0.5, 0.5));
+			    		addParallel(new DriveForward(0.6, 0.6));
+			    		addSequential(new ElevatorDown());
 			    	}
 			    	else{
 				    	// Unstack all the tote
@@ -38,11 +38,12 @@ public class RobotStackUnstack extends CommandGroup {
 	    	else{
 	    		// If only one tote, just move elevator to transport position
 	    		addSequential(new ConveyorIn());
-	    		addSequential(new ElevatorPercent(0.5, Elevator.TRANSPORT));
+	    		addSequential(new ElevatorPercent(0.65, Elevator.TRANSPORT));
 	    	}
 	    	
 	    	// Prepare robot for next step
-    		addParallel(new DriveBackward(0.5, 1));
+    		addParallel(new DriveBackward(0.6, 1));
+    		//addParallel(new DriveBackwardAndRotate180(0.6, 2));
     	}
     }
     

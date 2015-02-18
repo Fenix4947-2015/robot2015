@@ -7,7 +7,7 @@
 		<location x="421" y="112"/>
 	</widget>
 	<widget field="ElevatorLimitDown" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
-		<location x="422" y="129"/>
+		<location x="421" y="129"/>
 	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
 		<location x="560" y="87"/>

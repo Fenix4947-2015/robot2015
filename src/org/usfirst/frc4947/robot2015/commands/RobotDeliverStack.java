@@ -24,7 +24,7 @@ public class RobotDeliverStack extends CommandGroup {
     	addSequential(new ConveyorOut(0.3));
     	
     	// Move elevator to the delivering position
-    	addSequential(new ElevatorPercent(0.25, Elevator.DELIVER));
+    	addSequential(new ElevatorPercent(0.5, Elevator.DELIVER));
     	
     	// Deliver the stack
     	addParallel(new DriveForward(0.35, 5.0));

@@ -41,11 +41,12 @@ public class ElevatorPercent extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	//return Math.abs(Robot.elevator.getPosition() - position) <= 10;
     	if(isForwardDirection){
-    		return Robot.elevator.getPosition() >= position;
+    		return Math.abs(Robot.elevator.getPosition() - position) <= 10 || Robot.elevator.getPosition() >= position;
     	}
     	else{
-    		return Robot.elevator.getPosition() <= position;
+    		return Math.abs(Robot.elevator.getPosition() - position) <= 10|| Robot.elevator.getPosition() <= position;
     	}
     }
 
