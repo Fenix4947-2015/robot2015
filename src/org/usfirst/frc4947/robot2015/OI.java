@@ -18,6 +18,7 @@ import org.usfirst.frc4947.robot2015.commands.ElevatorManual;
 import org.usfirst.frc4947.robot2015.commands.ElevatorPercent;
 import org.usfirst.frc4947.robot2015.commands.ElevatorPosition;
 import org.usfirst.frc4947.robot2015.commands.ElevatorStack;
+import org.usfirst.frc4947.robot2015.commands.ElevatorStackUnstack;
 import org.usfirst.frc4947.robot2015.commands.ElevatorStop;
 import org.usfirst.frc4947.robot2015.commands.ElevatorUnstack;
 import org.usfirst.frc4947.robot2015.commands.RobotDeliverStack;
@@ -97,7 +98,7 @@ public class OI {
         JoystickButton helperStart = new JoystickButton(joystickHelper, XBoxButton.Start.getValue());
 
         // TODO Linker les boutons avec des commandes comme plus bas
-        //helperA.whenPressed(new ConveyorIn());
+        driverX.whenPressed(new ElevatorUnstack());
         
     	// SmartDashboard Buttons
         SmartDashboard.putData("AutonomousSimple", new AutonomousSimple());
@@ -128,6 +129,7 @@ public class OI {
         SmartDashboard.putData("ElevatorHookHold", new ElevatorHookHold());
         SmartDashboard.putData("ElevatorStack", new ElevatorStack());
         SmartDashboard.putData("ElevatorDown", new ElevatorDown());
+        SmartDashboard.putData("ElevatorStackUnstack", new ElevatorStackUnstack());
         SmartDashboard.putData("ElevatorUnstack", new ElevatorUnstack());
         
         SmartDashboard.putData("RobotStackUnstack(1)", new RobotStackUnstack(1));

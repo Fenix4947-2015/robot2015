@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class ElevatorUnstack extends CommandGroup {
+public class ElevatorStackUnstack extends CommandGroup {
     
-    public  ElevatorUnstack() {
-    	addSequential(new ElevatorPosition(Elevator.STACK));
+    public  ElevatorStackUnstack() {
+    	addSequential(new ElevatorPosition(Elevator.HOOK));
     	addSequential(new ElevatorHookRelease());
     	addSequential(new ElevatorPercent(0.5, Elevator.TRANSPORT));
     }

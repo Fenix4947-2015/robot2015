@@ -15,14 +15,20 @@ public class RobotDeliverStack extends CommandGroup {
     	// TODO Determiner tous les temps pour la sequence de livraison d'un pile
     	
     	// Align the robot with the step
-    	addSequential(new DriveAutoLimit(0.60));
+    	//addSequential(new DriveAutoLimit(0.60));
     	
-    	addSequential(new DriveForward(0.60, 0.3));
-    	addSequential(new DriveWait(1.0));
+    	//addSequential(new DriveForward(0.60, 0.3));
+    	//addSequential(new DriveWait(1.0));
+    	
+    	// Move the stack forward to clear the motor
+    	addSequential(new ConveyorOut(0.3));
+    	
+    	// Move elevator to the delivering position
+    	addSequential(new ElevatorPercent(0.25, Elevator.DELIVER));
     	
     	// Deliver the stack
-    	addSequential(new ConveyorOut(5.0));
     	addParallel(new DriveForward(0.35, 5.0));
+    	addParallel(new ConveyorOut(5.0));
     	
     	// Prepare robot for next step
     	//addSequential(new DriveBackwardAndRotate180(0.5));

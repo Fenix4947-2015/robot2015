@@ -17,20 +17,20 @@ public class RobotStackUnstack extends CommandGroup {
 
 	    	// Prepare to receive tote
     		addSequential(new ElevatorHookHold());
-	    	addSequential(new ElevatorPosition(Elevator.ACCEPT));
+    		addParallel(new ElevatorPosition(Elevator.ACCEPT));
 	    	
     		if(nbTote > 1){
 		    	for(int i = 1; i <= nbTote; i++){
-			    	addSequential(new ConveyorIn());
+		    		addSequential(new ConveyorIn());
 			    	
 			    	if(i < nbTote){
 			    		addSequential(new ElevatorStack());
-				    	addSequential(new ElevatorDown());
-				    	addSequential(new DriveForward(0.5, 0.5));
+			    		addParallel(new ElevatorDown());
+			    		addParallel(new DriveForward(0.5, 0.5));
 			    	}
 			    	else{
 				    	// Unstack all the tote
-				    	addSequential(new ElevatorUnstack());
+			    		addParallel(new ElevatorStackUnstack());
 			    	}
 		    	}
 	    	}
@@ -41,8 +41,7 @@ public class RobotStackUnstack extends CommandGroup {
 	    	}
 	    	
 	    	// Prepare robot for next step
-    		// TODO Remettre la rotation automatique
-	    	//addParallel(new DriveBackwardAndRotate180(2));
+    		addParallel(new DriveBackward(0.5, 1));
     	}
     }
     

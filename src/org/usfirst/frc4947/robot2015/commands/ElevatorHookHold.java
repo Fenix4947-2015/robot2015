@@ -15,7 +15,7 @@ public class ElevatorHookHold extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(0.5);
+    	setTimeout(0.1);
     	
     }
 

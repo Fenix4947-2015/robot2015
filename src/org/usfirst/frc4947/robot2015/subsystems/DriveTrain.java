@@ -1,7 +1,6 @@
 package org.usfirst.frc4947.robot2015.subsystems;
 
 import org.usfirst.frc4947.robot2015.commands.DriveArcade;
-import org.usfirst.frc4947.robot2015.commands.DriveTank;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
@@ -25,7 +24,6 @@ public class DriveTrain extends Subsystem {
     
 	private CANTalon motorLeftRear = new CANTalon(2);
 	private CANTalon motorRightRear = new CANTalon(0);
-	
 	private CANTalon motorLeftFront = new CANTalon(3);
 	private CANTalon motorRightFront = new CANTalon(1);
     

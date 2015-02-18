@@ -8,6 +8,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousDoNothing extends CommandGroup {
     
     public  AutonomousDoNothing() {
-    	// Do nothing
+    	addSequential(new ElevatorHome());
     }
 }

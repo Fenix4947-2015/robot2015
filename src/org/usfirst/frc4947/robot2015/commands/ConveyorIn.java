@@ -21,7 +21,7 @@ import org.usfirst.frc4947.robot2015.Robot;
  */
 public class  ConveyorIn extends Command {
 	// TODO Trouver la bonne valeur de timeout
-	private final static double TIMEOUT = 1.0;
+	private final static double TIMEOUT = 0.1;
 			
 	private double timestamp = 0;
 	
