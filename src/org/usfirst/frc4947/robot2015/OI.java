@@ -104,27 +104,16 @@ public class OI {
         SmartDashboard.putData("AutonomousSimple", new AutonomousSimple());
         
         SmartDashboard.putData("DriveAutoAlign", new DriveAutoAlign(0.6));
-        SmartDashboard.putData("DriveForward(1)", new DriveForward(0.75, 1));
-        SmartDashboard.putData("DriveBackward(1)", new DriveBackward(0.75, 1));
         SmartDashboard.putData("DriveRotate180", new DriveRotate180());
         SmartDashboard.putData("DriveGyroInit", new DriveGyroInit());
         
         SmartDashboard.putData("ConveyorStop", new ConveyorStop());
         SmartDashboard.putData("ConveyorIn", new ConveyorIn());
-        SmartDashboard.putData("ConveyorOut(5)", new ConveyorOut(5));
-        SmartDashboard.putData("ConveyorOut(0.5)", new ConveyorOut(0.5));
         SmartDashboard.putData("ConveyorManual", new ConveyorManual());
         
         SmartDashboard.putData("ElevatorStop", new ElevatorStop());
         SmartDashboard.putData("ElevatorHome", new ElevatorHome());
         SmartDashboard.putData("ElevatorManual", new ElevatorManual());
-        SmartDashboard.putData("ElevatorPosition(STACK)", new ElevatorPosition(Elevator.STACK));
-        SmartDashboard.putData("ElevatorPosition(SLOWDOWN)", new ElevatorPosition(Elevator.SLOWDOWN));
-        SmartDashboard.putData("ElevatorPosition(ACCEPT)", new ElevatorPosition(Elevator.ACCEPT));
-        SmartDashboard.putData("ElevatorPosition(TRANSPORT)", new ElevatorPosition(Elevator.TRANSPORT));
-        SmartDashboard.putData("ElevatorPosition(DELIVER)", new ElevatorPosition(Elevator.DELIVER));
-        SmartDashboard.putData("ElevatorPercent(0.25, 1000)", new ElevatorPercent(0.25, 1000));
-        SmartDashboard.putData("ElevatorPosition(0.25, 3000)", new ElevatorPercent(0.25,  3000));
         SmartDashboard.putData("ElevatorHookRelease", new ElevatorHookRelease());
         SmartDashboard.putData("ElevatorHookHold", new ElevatorHookHold());
         SmartDashboard.putData("ElevatorStack", new ElevatorStack());
@@ -139,7 +128,6 @@ public class OI {
         SmartDashboard.putData("RobotStackUnstack(5)", new RobotStackUnstack(5));
         SmartDashboard.putData("RobotStackUnstack(6)", new RobotStackUnstack(6));
         SmartDashboard.putData("RobotDeliverStack)", new RobotDeliverStack());
-
     }
     
     public double getJoystickDriverAxis(XBoxAxis axis) {

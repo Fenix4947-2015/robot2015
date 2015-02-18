@@ -4,15 +4,15 @@
 		<location x="361" y="315"/>
 	</widget>
 	<widget field="ElevatorLimitUp" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
-		<location x="416" y="112"/>
+		<location x="421" y="112"/>
 	</widget>
 	<widget field="ElevatorLimitDown" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
 		<location x="422" y="129"/>
 	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
-		<location x="560" y="66"/>
-		<width>592</width>
-		<height>510</height>
+		<location x="560" y="87"/>
+		<width>596</width>
+		<height>446</height>
 	</static-widget>
 	<widget field="Gyro" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="408" y="8"/>
@@ -25,6 +25,7 @@
 	</widget>
 	<widget field="DriveTrainLeft" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
 		<location x="68" y="111"/>
+		<height>14</height>
 	</widget>
 	<widget field="ConveyorRight" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
 		<location x="252" y="131"/>
@@ -47,7 +48,7 @@
 		<width>289</width>
 	</widget>
 	<widget field="RobotStackUnstack(1)" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="40" y="324"/>
+		<location x="38" y="323"/>
 	</widget>
 	<widget field="ElevatorUnstack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="387" y="342"/>
