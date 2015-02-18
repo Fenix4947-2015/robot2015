@@ -28,7 +28,7 @@ public class RobotDeliverStack extends CommandGroup {
     	
     	// Deliver the stack
     	addParallel(new DriveForward(0.35, 5.0));
-    	addParallel(new ConveyorOut(5.0));
+    	addSequential(new ConveyorOut(5.0));
     	
     	// Prepare robot for next step
     	//addSequential(new DriveBackwardAndRotate180(0.5));
