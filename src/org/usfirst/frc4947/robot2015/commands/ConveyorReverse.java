@@ -11,17 +11,17 @@
 
 package org.usfirst.frc4947.robot2015.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4947.robot2015.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class  ConveyorOut extends Command {
-
-	private double timeout;
+public class  ConveyorReverse extends Command {
+	private double timeout = 0;
 	
-    public ConveyorOut(double timeout) {
+    public ConveyorReverse(double timeout) {
         requires(Robot.conveyor);
         
         this.timeout = timeout;
@@ -29,8 +29,8 @@ public class  ConveyorOut extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(timeout);
-    	Robot.conveyor.setSpeed(0.75);
+    	Robot.conveyor.setSpeed(-1);
+    	this.setTimeout(timeout);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -39,7 +39,7 @@ public class  ConveyorOut extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+    	return this.isTimedOut();
     }
 
     // Called once after isFinished returns true

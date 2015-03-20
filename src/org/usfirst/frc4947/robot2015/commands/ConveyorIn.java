@@ -11,19 +11,15 @@
 
 package org.usfirst.frc4947.robot2015.commands;
 
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc4947.robot2015.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class  ConveyorIn extends Command {
-	// TODO Trouver la bonne valeur de timeout
-	private final static double TIMEOUT = 0.25;
-			
-	private double timestamp = 0;
+	private boolean isEmpty = false;
 	
     public ConveyorIn() {
         requires(Robot.conveyor);
@@ -37,33 +33,21 @@ public class  ConveyorIn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	// TODO Voir si on voudrait compter le temps seulement quand les 2 switch sont active en meme temps
-    	if(!Robot.conveyor.getLimitSwitchLeft() && !Robot.conveyor.getLimitSwitchRight()){
-    		if(timestamp == 0){
-    			// Record the timestamp to start timeout timer
-    			timestamp = Timer.getFPGATimestamp();
-    		}
+    	
+    	if(Robot.conveyor.getLimitSwitchLeft() && Robot.conveyor.getLimitSwitchRight()){
+    		isEmpty = true;
     	}
-		else{
-			// Reset the timestamp since no limit are activated
-			timestamp = 0;
-		}
-    }
-    
-    public double timeSinceLimitSwitch() {
-        return timestamp == 0 ? 0 : Timer.getFPGATimestamp() - timestamp;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// Execute until limit switch are activated for a certain period of time
-        return timeSinceLimitSwitch() >= TIMEOUT;
+    	return isEmpty && !Robot.conveyor.getLimitSwitchLeft() && !Robot.conveyor.getLimitSwitchRight();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.conveyor.setGreenLight(false);
     	Robot.conveyor.setSpeed(0);
+    	Robot.conveyor.setGreenLight(false);
     }
 
     // Called when another command which requires one or more of the same

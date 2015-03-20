@@ -17,20 +17,18 @@ import org.usfirst.frc4947.robot2015.Robot;
 /**
  *
  */
-public class  ConveyorOut extends Command {
+public class  ConveyorStopDelay extends Command {
 
-	private double timeout;
+	private double delay = 0;
 	
-    public ConveyorOut(double timeout) {
+    public ConveyorStopDelay(double delay) {
         requires(Robot.conveyor);
-        
-        this.timeout = timeout;
+        this.delay = delay;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(timeout);
-    	Robot.conveyor.setSpeed(0.75);
+    	this.setTimeout(delay);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -45,6 +43,7 @@ public class  ConveyorOut extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.conveyor.setSpeed(0);
+    	Robot.conveyor.setGreenLight(false);
     }
 
     // Called when another command which requires one or more of the same

@@ -6,8 +6,6 @@ import org.usfirst.frc4947.robot2015.commands.ConveyorManual;
 import org.usfirst.frc4947.robot2015.commands.ConveyorOut;
 import org.usfirst.frc4947.robot2015.commands.ConveyorStop;
 import org.usfirst.frc4947.robot2015.commands.DriveAutoAlign;
-import org.usfirst.frc4947.robot2015.commands.DriveBackward;
-import org.usfirst.frc4947.robot2015.commands.DriveForward;
 import org.usfirst.frc4947.robot2015.commands.DriveGyroInit;
 import org.usfirst.frc4947.robot2015.commands.DriveRotate180;
 import org.usfirst.frc4947.robot2015.commands.ElevatorDown;
@@ -15,15 +13,12 @@ import org.usfirst.frc4947.robot2015.commands.ElevatorHome;
 import org.usfirst.frc4947.robot2015.commands.ElevatorHookHold;
 import org.usfirst.frc4947.robot2015.commands.ElevatorHookRelease;
 import org.usfirst.frc4947.robot2015.commands.ElevatorManual;
-import org.usfirst.frc4947.robot2015.commands.ElevatorPercent;
-import org.usfirst.frc4947.robot2015.commands.ElevatorPosition;
 import org.usfirst.frc4947.robot2015.commands.ElevatorStack;
 import org.usfirst.frc4947.robot2015.commands.ElevatorStackUnstack;
 import org.usfirst.frc4947.robot2015.commands.ElevatorStop;
 import org.usfirst.frc4947.robot2015.commands.ElevatorUnstack;
 import org.usfirst.frc4947.robot2015.commands.RobotDeliverStack;
 import org.usfirst.frc4947.robot2015.commands.RobotStackUnstack;
-import org.usfirst.frc4947.robot2015.subsystems.Elevator;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Joystick.RumbleType;
@@ -110,6 +105,7 @@ public class OI {
         
         SmartDashboard.putData("ConveyorStop", new ConveyorStop());
         SmartDashboard.putData("ConveyorIn", new ConveyorIn());
+        SmartDashboard.putData("ConveyorOut", new ConveyorOut(3.0));
         SmartDashboard.putData("ConveyorManual", new ConveyorManual());
         
         SmartDashboard.putData("ElevatorStop", new ElevatorStop());

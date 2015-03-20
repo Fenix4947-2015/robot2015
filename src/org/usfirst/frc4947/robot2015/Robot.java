@@ -46,8 +46,8 @@ public class Robot extends IterativeRobot {
         oi = new OI();
 
         // Instantiate the command used for the autonomous period
-        autonomousChooser.addDefault("AutonomousSimple", new AutonomousSimple());
         autonomousChooser.addObject("AutonomousDoNothing", new AutonomousDoNothing());
+        autonomousChooser.addDefault("AutonomousSimple", new AutonomousSimple());
         SmartDashboard.putData("AutonomousMode", autonomousChooser);
        
         // Show what command your subsystem is running on the SmartDashboard

@@ -40,6 +40,7 @@ public class  ConveyorStop extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.conveyor.setSpeed(0);
+    	Robot.conveyor.setGreenLight(false);
     }
 
     // Called when another command which requires one or more of the same

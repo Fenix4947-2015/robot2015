@@ -11,45 +11,44 @@
 
 package org.usfirst.frc4947.robot2015.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4947.robot2015.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class  ConveyorOut extends Command {
-
-	private double timeout;
+public class  ConveyorInDelay extends Command {
+	private double delay = 0;
 	
-    public ConveyorOut(double timeout) {
+    public ConveyorInDelay(double delay) {
         requires(Robot.conveyor);
-        
-        this.timeout = timeout;
+        this.delay = delay;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(timeout);
-    	Robot.conveyor.setSpeed(0.75);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+		if (timeSinceInitialized() >= delay){
+			Robot.conveyor.setSpeed(-1);
+	    	Robot.conveyor.setGreenLight(true);			
+		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return !Robot.conveyor.getLimitSwitchLeft() && !Robot.conveyor.getLimitSwitchRight();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.conveyor.setSpeed(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }
