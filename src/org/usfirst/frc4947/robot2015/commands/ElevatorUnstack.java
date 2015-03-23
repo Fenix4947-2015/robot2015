@@ -12,6 +12,7 @@ public class ElevatorUnstack extends CommandGroup {
     public  ElevatorUnstack() {
     	addSequential(new ElevatorPosition(Elevator.STACK));
     	addSequential(new ElevatorHookRelease());
-    	addSequential(new ElevatorPercent(0.5, Elevator.TRANSPORT));
+    	//addSequential(new ElevatorPercent(0.5, Elevator.TRANSPORT));
+    	addSequential(new ElevatorPosition(Elevator.TRANSPORT));
     }
 }

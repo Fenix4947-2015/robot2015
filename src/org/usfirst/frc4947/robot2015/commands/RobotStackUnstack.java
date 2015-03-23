@@ -1,6 +1,5 @@
 package org.usfirst.frc4947.robot2015.commands;
 
-import org.usfirst.frc4947.robot2015.OI.XBoxAxis;
 import org.usfirst.frc4947.robot2015.OI.XBoxButton;
 import org.usfirst.frc4947.robot2015.Robot;
 import org.usfirst.frc4947.robot2015.subsystems.Elevator;
@@ -23,13 +22,15 @@ public class RobotStackUnstack extends CommandGroup {
 		    	for(int i = 1; i <= nbTote; i++){
 		    		// Activate the conveyor in with delay if not first tote
 	    			addSequential(new ConveyorIn());
+	    			
 	    			addParallel(new ConveyorReverse(1));
 			    	
 			    	if(i < nbTote){
 			    		addSequential(new ElevatorStack());
 			    		addParallel(new DriveForward(0.6, 0.6));
-			    		addParallel(new ElevatorPosition(Elevator.ACCEPT));
-			    		//addSequential(new ElevatorDown()); 
+			    		//addParallel(new ElevatorPosition(Elevator.ACCEPT));
+			    		addSequential(new ElevatorPosition(Elevator.ACCEPT));
+			    		//addParallel(new ElevatorDown()); 
 			    	}
 			    	else{
 				    	// Unstack all the tote
@@ -40,7 +41,8 @@ public class RobotStackUnstack extends CommandGroup {
 	    	else{
 	    		// If only one tote, just move elevator to transport position
 	    		addSequential(new ConveyorIn());
-	    		addSequential(new ElevatorPercent(0.65, Elevator.TRANSPORT));
+	    		//addSequential(new ElevatorPercent(0.65, Elevator.TRANSPORT));
+	    		addSequential(new ElevatorPosition(Elevator.TRANSPORT));
 	    	}
 	    	
 	    	// Prepare robot for next step

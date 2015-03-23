@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class  ConveyorInDelay extends Command {
 	private double delay = 0;
+	private boolean isEmpty = false;
 	
     public ConveyorInDelay(double delay) {
         requires(Robot.conveyor);
@@ -33,14 +34,20 @@ public class  ConveyorInDelay extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 		if (timeSinceInitialized() >= delay){
-			Robot.conveyor.setSpeed(-1);
-	    	Robot.conveyor.setGreenLight(true);			
+			if(Robot.conveyor.getLimitSwitchLeft() && Robot.conveyor.getLimitSwitchRight()){
+				isEmpty = true;
+			}
+			
+			if(isEmpty){
+				Robot.conveyor.setSpeed(-1);
+		    	Robot.conveyor.setGreenLight(true);			
+			}
 		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !Robot.conveyor.getLimitSwitchLeft() && !Robot.conveyor.getLimitSwitchRight();
+    	return isEmpty && !Robot.conveyor.getLimitSwitchLeft() && !Robot.conveyor.getLimitSwitchRight();
     }
 
     // Called once after isFinished returns true

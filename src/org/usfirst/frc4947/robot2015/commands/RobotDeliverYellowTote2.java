@@ -9,12 +9,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class RobotDeliverYellowTote extends CommandGroup {
+public class RobotDeliverYellowTote2 extends CommandGroup {
     
-    public  RobotDeliverYellowTote() {
+    public  RobotDeliverYellowTote2() {
     	
     	// Move elevator to the delivering position
-    	addSequential(new ElevatorPercent(0.5, Elevator.DELIVER_YELLOW));
+    	addSequential(new ElevatorPercent(0.5, Elevator.DELIVER_YELLOW2));
     	
     	// Deliver the stack
     	addSequential(new ConveyorOut(3.0));

@@ -12,6 +12,6 @@ public class AutonomousSimple extends CommandGroup {
     public  AutonomousSimple() {
     	addSequential(new ElevatorHome());
     	addSequential(new ElevatorPosition(Elevator.ACCEPT));
-    	addSequential(new DriveBackward(0.6, 2.0));
+    	addSequential(new DriveBackward(0.7, 3.0));
     }
 }

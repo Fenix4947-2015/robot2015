@@ -30,7 +30,7 @@ public class  ConveyorOut extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	setTimeout(timeout);
-    	Robot.conveyor.setSpeed(0.75);
+    	Robot.conveyor.setSpeed(0.65);
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -18,6 +18,8 @@ import org.usfirst.frc4947.robot2015.commands.ElevatorStackUnstack;
 import org.usfirst.frc4947.robot2015.commands.ElevatorStop;
 import org.usfirst.frc4947.robot2015.commands.ElevatorUnstack;
 import org.usfirst.frc4947.robot2015.commands.RobotDeliverStack;
+import org.usfirst.frc4947.robot2015.commands.RobotDeliverYellowTote;
+import org.usfirst.frc4947.robot2015.commands.RobotDeliverYellowTote2;
 import org.usfirst.frc4947.robot2015.commands.RobotStackUnstack;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -125,6 +127,8 @@ public class OI {
         SmartDashboard.putData("RobotStackUnstack(5)", new RobotStackUnstack(5));
         SmartDashboard.putData("RobotStackUnstack(6)", new RobotStackUnstack(6));
         SmartDashboard.putData("RobotDeliverStack)", new RobotDeliverStack());
+        SmartDashboard.putData("RobotDeliverYellow", new RobotDeliverYellowTote());
+        SmartDashboard.putData("RobotDeliverYellow2", new RobotDeliverYellowTote2());
     }
     
     public double getJoystickDriverAxis(XBoxAxis axis) {

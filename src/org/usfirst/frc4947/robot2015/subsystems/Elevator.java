@@ -15,9 +15,10 @@ public class Elevator extends Subsystem {
 	public final static int STACK = 0;
 	public final static int SLOWDOWN = 400;
 	public final static int HOOK = 1700;
-	public final static int DELIVER_YELLOW = 4000;
 	public final static int ACCEPT = 4100;
-	public final static int TRANSPORT = 4750;
+	public final static int DELIVER_YELLOW = 4300;
+	public final static int DELIVER_YELLOW2 = 2160;
+	public final static int TRANSPORT = 4650;
 	public final static int DELIVER = 5100;
 
 	
