@@ -2,12 +2,13 @@ package org.usfirst.frc4947.robot2015.subsystems;
 
 import org.usfirst.frc4947.robot2015.commands.DriveArcade;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -16,7 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveTrain extends Subsystem {
-	private Gyro gyro = new Gyro(0);
+	private AnalogGyro gyro = new AnalogGyro(0);
 	private BuiltInAccelerometer accelerometer = new BuiltInAccelerometer();
 	
 	private DigitalInput antennaLeft = new DigitalInput(1);

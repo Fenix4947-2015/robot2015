@@ -27,7 +27,7 @@ public class RobotStackUnstack extends CommandGroup {
 			    	
 			    	if(i < nbTote){
 			    		addSequential(new ElevatorStack());
-			    		addParallel(new DriveForward(0.6, 0.6));
+			    		//addParallel(new DriveForward(0.6, 0.6));
 			    		//addParallel(new ElevatorPosition(Elevator.ACCEPT));
 			    		addSequential(new ElevatorPosition(Elevator.ACCEPT));
 			    		//addParallel(new ElevatorDown()); 
@@ -46,7 +46,7 @@ public class RobotStackUnstack extends CommandGroup {
 	    	}
 	    	
 	    	// Prepare robot for next step
-    		addParallel(new DriveBackward(0.6, 1));
+    		//addParallel(new DriveBackward(0.6, 1));
     		//addParallel(new DriveBackwardAndRotate180(0.6, 2));
     	}
     }

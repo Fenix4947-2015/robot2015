@@ -96,7 +96,7 @@ public class OI {
         JoystickButton helperStart = new JoystickButton(joystickHelper, XBoxButton.Start.getValue());
 
         // TODO Linker les boutons avec des commandes comme plus bas
-        driverX.whenPressed(new ElevatorUnstack());
+        driverX.whenPressed(new RobotDeliverStack());
         
     	// SmartDashboard Buttons
         SmartDashboard.putData("AutonomousSimple", new AutonomousSimple());

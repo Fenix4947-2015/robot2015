@@ -3,6 +3,8 @@ package org.usfirst.frc4947.robot2015.subsystems;
 import org.usfirst.frc4947.robot2015.commands.ElevatorStop;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
+import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -31,7 +33,7 @@ public class Elevator extends Subsystem {
     public Elevator() {
         super();
 
-        motorSlave.changeControlMode(CANTalon.ControlMode.Follower);
+        motorSlave.changeControlMode(TalonControlMode.Follower);
         motorSlave.set(motorMaster.getDeviceID());
         
         LiveWindow.addActuator("ConveyorElevator", "ReleaseHook", releaseHook);
@@ -42,13 +44,13 @@ public class Elevator extends Subsystem {
     }
     
     public void setModePosition(){
-        motorMaster.changeControlMode(CANTalon.ControlMode.Position);
-        motorMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+        motorMaster.changeControlMode(TalonControlMode.Position);
+        motorMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
         motorMaster.setPID(4,  0,  0);
     }
     
     public void setModePercent(){
-        motorMaster.changeControlMode(CANTalon.ControlMode.PercentVbus);
+        motorMaster.changeControlMode(TalonControlMode.PercentVbus);
     }
 
     public boolean getForwardLimit(){
